@@ -1,7 +1,7 @@
 <?php
 require_once "../../../app/controller/DiagnosticosControlador.php";
 require_once "../../../app/model/DiagnosticosModelo.php";
-
+require_once "../../../app/model/dbConnect.php";
 class ajaxDiagnosticos
 {
     // Validar CIE repetido
@@ -44,6 +44,43 @@ class ajaxDiagnosticos
         echo $html;
     }
     // Listar Diagnostico no Seleccionado
+
+
+    // Búsqueda de diagnosticos
+    public $datoBusDX;
+    public function ajaxBuscarDiagnosticoPrincipal()
+    {
+        $valorTermino = $this->datoBusDX;
+
+        $stmt = Conexion::conectar()->prepare("CALL Buscar_Diagnosticos('$valorTermino',1,0)");
+        $stmt->execute();
+        $data = array();
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $data[] = array("id" => $row['idDiagnostico'], "text" =>  $row['diagnostico']);
+        }
+        echo json_encode($data);
+    }
+    // Búsqueda de diagnosticos
+
+
+    public $datoBusDX2;
+    public $datoBusidEx;
+
+    public function ajaxBuscarDiagnosticoPrincipal2()
+    {
+        $valorTermino = $this->datoBusDX2;
+        $filtro = $this->datoBusidEx;
+
+        $stmt = Conexion::conectar()->prepare("CALL Buscar_Diagnosticos('$valorTermino',2,$filtro)");
+        $stmt->execute();
+        $data = array();
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $data[] = array("id" => $row['idDiagnostico'], "text" =>  $row['diagnostico']);
+        }
+        echo json_encode($data);
+    }
+
+
 }
 // Validar CIE repetido
 if (isset($_POST["validarCie"])) {
@@ -64,4 +101,18 @@ if (isset($_POST["existe"])) {
     $list3 = new ajaxDiagnosticos();
     $list3->existe = $_POST["existe"];
     $list3->ajaxListarDiagnosticosNoSeleccionado();
+}
+
+
+if (isset($_POST["searchTerm"])) {
+    $listdxPrincipal = new ajaxDiagnosticos();
+    $listdxPrincipal->datoBusDX = $_POST["searchTerm"];
+    $listdxPrincipal->ajaxBuscarDiagnosticoPrincipal();
+}
+
+if (isset($_POST["searchTerm2"])) {
+    $listdxPrincipal2 = new ajaxDiagnosticos();
+    $listdxPrincipal2->datoBusDX2 = $_POST["searchTerm2"];
+    $listdxPrincipal2->datoBusidEx = $_POST["excluido"];
+    $listdxPrincipal2->ajaxBuscarDiagnosticoPrincipal2();
 }

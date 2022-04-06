@@ -11,9 +11,12 @@ session_start();
   <title>PSYEM-Web | HNSEB</title>
   <!-- CSS -->
   <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,400&display=swap">
+  <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,400&display=swap"> -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="public/views/plugins/fontawesome-free/css/all.min.css">
+  <!-- <link rel="stylesheet" href="public/views/plugins/fontawesome-free/css/all.min.css"> -->
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Datatables -->
@@ -46,6 +49,7 @@ session_start();
   <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
   <!-- Bootstrap 4 -->
   <script src="public/views/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="https://kit.fontawesome.com/a073170c04.js" crossorigin="anonymous"></script>
   <!-- ChartJS -->
   <script src="public/views/plugins/chart.js/Chart.js"></script>
 
@@ -123,7 +127,7 @@ session_start();
   <script type="text/javascript" src="public/js/diagnosticos.min.js"></script>
   <script type="text/javascript" src="public/js/atenciones.min.js"></script>
   <script type="text/javascript" src="public/js/familiares.min.js"></script>
-  <script type="text/javascript" src="public/js/seguimiento.min.js"></script>
+  <script type="text/javascript" src="public/js/seguimiento.js"></script>
   <script type="text/javascript" src="public/js/monitoreo.min.js"></script>
   <script type="text/javascript" src="public/js/pacientes.min.js"></script>
   <script type="text/javascript" src="public/js/reportes-general.min.js"></script>

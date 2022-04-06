@@ -202,16 +202,8 @@ if ($_SESSION["loginPerfil"] == 1) {
                 <label for="rgSegDp1">Diagnóstico 1: <span class="text-danger">&nbsp;*</span></label>
                 <i class="fas fa-stethoscope"></i>
                 <div class="input-group">
-                  <select class="form-control" id="rgSegDp1" name="rgSegDp1">
+                  <select class="form-control rgSegDp1" id="rgSegDp1" name="rgSegDp1" style="width: 100%;">
                     <option value="0">Seleccione Diagnóstico 1</option>
-                    <?php
-                    $item = null;
-                    $val = null;
-                    $diag1 = DiagnosticosControlador::ctrListarDiagnosticos($item, $val);
-                    foreach ($diag1 as $key => $value) {
-                      echo '<option value="' . $value["idDiagnostico"] . '">' . $value["cieDiagnostico"] . ' - ' . $value["detaDiagnostico"] . '</option>';
-                    }
-                    ?>
                   </select>
                 </div>
               </div>
@@ -223,7 +215,7 @@ if ($_SESSION["loginPerfil"] == 1) {
                 <label for="rgSegDp2">Actividad (OPCIONAL): &nbsp;</label>
                 <i class="fas fa-stethoscope"></i>
                 <div class="input-group">
-                  <select class="form-control" id="rgSegDp2" name="rgSegDp2">
+                  <select class="form-control rgSegDp2" id="rgSegDp2" name="rgSegDp2" style="width: 100%;">
                     <option value="0">Seleccione Actividad (Opcional)</option>
                   </select>
                 </div>
@@ -277,16 +269,8 @@ if ($_SESSION["loginPerfil"] == 1) {
                     <label for="rgSegDf1">Diagnóstico 1: <span class="text-danger">&nbsp;*</span></label>
                     <i class="fas fa-stethoscope"></i>
                     <div class="input-group">
-                      <select class="form-control" id="rgSegDf1" name="rgSegDf1">
+                      <select class="form-control rgSegDf1" id="rgSegDf1" name="rgSegDf1" style="width: 100%;">
                         <option value="0">Seleccione Diagnóstico 1</option>
-                        <?php
-                        $item = null;
-                        $val = null;
-                        $diagf1 = DiagnosticosControlador::ctrListarDiagnosticos($item, $val);
-                        foreach ($diagf1 as $key => $value) {
-                          echo '<option value="' . $value["idDiagnostico"] . '">' . $value["cieDiagnostico"] . ' - ' . $value["detaDiagnostico"] . '</option>';
-                        }
-                        ?>
                       </select>
                     </div>
                   </div>
@@ -298,7 +282,7 @@ if ($_SESSION["loginPerfil"] == 1) {
                     <label for="rgSegDf2">Actividad (OPCIONAL): &nbsp;</label>
                     <i class="fas fa-stethoscope"></i>
                     <div class="input-group">
-                      <select class="form-control" id="rgSegDf2" name="rgSegDf2">
+                      <select class="form-control rgSegDf2" id="rgSegDf2" name="rgSegDf2" style="width: 100%;">
                         <option value="0">Seleccione Actividad (Opcional)</option>
                       </select>
                     </div>

@@ -21,7 +21,7 @@
       </div>
       <div class="card-body">
         <input type="hidden" value="<?php echo $_SESSION["loginId"]; ?>" id="idAtencionUsuario">
-        <button type="btn" class="btn btn-secondary" data-toggle="modal" data-target="#modal-registrar-atencion"><i class="fas fa-archive"></i> Registrar Atención
+        <button type="btn" class="btn btn-secondary" data-toggle="modal" data-target="#modal-registrar-atencion"><i class="fas fa-archive"></i> Registrar Paciente
         </button>
         <button type="btn" class="ml-2 btn btn-success float-right" id="deshacer-filtro-Ate"><i class="fas fa-undo-alt"></i> Deshacer filtro
         </button>

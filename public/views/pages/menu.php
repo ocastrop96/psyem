@@ -141,7 +141,7 @@
           <a href="atenciones" class="nav-link">
             <i class="nav-icon fas fa-archive"></i>
             <p>
-              Atenciones
+              Pacientes
             </p>
           </a>
         </li>
@@ -210,7 +210,7 @@
             <a href="atenciones" class="nav-link">
               <i class="nav-icon fas fa-archive"></i>
               <p>
-                Atenciones
+              Pacientes
               </p>
             </a>
           </li>
@@ -247,7 +247,7 @@
           <a href="atenciones" class="nav-link">
             <i class="nav-icon fas fa-archive"></i>
             <p>
-              Atenciones
+            Pacientes
             </p>
           </a>
         </li>

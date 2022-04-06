@@ -290,6 +290,182 @@ $("#edtSegPac").select2(
         },
     }
 );
+
+$(".rgSegDp1").select2(
+    {
+        maximumInputLength: "12",
+        minimumInputLength: "2",
+        language: {
+
+            noResults: function () {
+
+                return "No hay resultado";
+            },
+            searching: function () {
+
+                return "Buscando Diagnóstico Principal ...";
+            },
+            inputTooShort: function () {
+                return "Ingrese 2 o más caracteres";
+            },
+            inputTooLong: function () {
+                return "Ingrese máximo 12 caracteres";
+            }
+        },
+        scrollAfterSelect: true,
+        placeholder: 'Ingrese CIE 10 o Descripción del Dx',
+        ajax: {
+            url: "public/views/src/ajaxDiagnosticos.php",
+            type: "post",
+            dataType: "json",
+            delay: 200,
+            data: function (params) {
+                return {
+                    searchTerm: params.term,
+                };
+            },
+            processResults: function (response) {
+                return {
+                    results: response,
+                };
+            },
+            cache: true,
+        },
+    }
+);
+
+$(".rgSegDp2").select2(
+    {
+        maximumInputLength: "12",
+        minimumInputLength: "2",
+        language: {
+
+            noResults: function () {
+
+                return "No hay resultado";
+            },
+            searching: function () {
+
+                return "Buscando Diagnóstico Principal ...";
+            },
+            inputTooShort: function () {
+                return "Ingrese 2 o más caracteres";
+            },
+            inputTooLong: function () {
+                return "Ingrese máximo 12 caracteres";
+            }
+        },
+        scrollAfterSelect: true,
+        placeholder: 'Ingrese CIE 10 o Descripción del Dx',
+        ajax: {
+            url: "public/views/src/ajaxDiagnosticos.php",
+            type: "post",
+            dataType: "json",
+            delay: 200,
+            data: function (params) {
+                return {
+                    searchTerm2: params.term,
+                    excluido: $("#rgSegDp1").val(),
+                };
+            },
+            processResults: function (response) {
+                return {
+                    results: response,
+                };
+            },
+            cache: true,
+        },
+    }
+);
+
+
+$(".rgSegDf1").select2(
+    {
+        maximumInputLength: "12",
+        minimumInputLength: "2",
+        language: {
+
+            noResults: function () {
+
+                return "No hay resultado";
+            },
+            searching: function () {
+
+                return "Buscando Diagnóstico Principal ...";
+            },
+            inputTooShort: function () {
+                return "Ingrese 2 o más caracteres";
+            },
+            inputTooLong: function () {
+                return "Ingrese máximo 12 caracteres";
+            }
+        },
+        scrollAfterSelect: true,
+        placeholder: 'Ingrese CIE 10 o Descripción del Dx',
+        ajax: {
+            url: "public/views/src/ajaxDiagnosticos.php",
+            type: "post",
+            dataType: "json",
+            delay: 200,
+            data: function (params) {
+                return {
+                    searchTerm: params.term,
+                };
+            },
+            processResults: function (response) {
+                return {
+                    results: response,
+                };
+            },
+            cache: true,
+        },
+    }
+);
+
+$(".rgSegDf2").select2(
+    {
+        maximumInputLength: "12",
+        minimumInputLength: "2",
+        language: {
+
+            noResults: function () {
+
+                return "No hay resultado";
+            },
+            searching: function () {
+
+                return "Buscando Diagnóstico Principal ...";
+            },
+            inputTooShort: function () {
+                return "Ingrese 2 o más caracteres";
+            },
+            inputTooLong: function () {
+                return "Ingrese máximo 12 caracteres";
+            }
+        },
+        scrollAfterSelect: true,
+        placeholder: 'Ingrese CIE 10 o Descripción del Dx',
+        ajax: {
+            url: "public/views/src/ajaxDiagnosticos.php",
+            type: "post",
+            dataType: "json",
+            delay: 200,
+            data: function (params) {
+                return {
+                    searchTerm2: params.term,
+                    excluido: $("#rgSegDf1").val(),
+                };
+            },
+            processResults: function (response) {
+                return {
+                    results: response,
+                };
+            },
+            cache: true,
+        },
+    }
+);
+
 $("#rgSegFec").inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' });
 $('#rgSegFec').datepicker({
     'format': 'dd/mm/yyyy',
@@ -355,7 +531,9 @@ $("#comSi").click(function () {
         $("#comFami").val("SI");
         $("#block1").removeClass("d-none");
         $("#rgSegFam")[0].selectedIndex = 0;
+        $("#rgSegDf1").empty().trigger('change')
         $("#rgSegDf1")[0].selectedIndex = 0;
+        $("#rgSegDf2").empty().trigger('change')
         $("#rgSegDf2")[0].selectedIndex = 0;
     } else {
         $("#comFami").val("NO");
