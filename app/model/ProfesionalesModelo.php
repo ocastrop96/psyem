@@ -6,27 +6,27 @@ class ProfesionalesModelo
     {
         if ($item != null) {
             $stmt = Conexion::conectar()->prepare("SELECT
-            acpsy_profesionales.idProfesional,
-            acpsy_profesionales.idEstado, 
-            acpsy_estadoprof.detaEstadoProf, 
-            acpsy_profesionales.idCondicion, 
-            acpsy_condicionprof.detaCondicion, 
-            acpsy_profesionales.dniProfesional, 
-            acpsy_profesionales.cpspProfesional, 
-            acpsy_profesionales.apellidosProfesional, 
-            acpsy_profesionales.nombresProfesional
+            psyem_profesionales.idProfesional,
+            psyem_profesionales.idEstado, 
+            psyem_estadoprof.detaEstadoProf, 
+            psyem_profesionales.idCondicion, 
+            psyem_condicionprof.detaCondicion, 
+            psyem_profesionales.dniProfesional, 
+            psyem_profesionales.cpspProfesional, 
+            psyem_profesionales.apellidosProfesional, 
+            psyem_profesionales.nombresProfesional
         FROM
-            acpsy_profesionales
+            psyem_profesionales
             INNER JOIN
-            acpsy_estadoprof
+            psyem_estadoprof
             ON 
-                acpsy_profesionales.idEstado = acpsy_estadoprof.idEstadoProf
+                psyem_profesionales.idEstado = psyem_estadoprof.idEstadoProf
             INNER JOIN
-            acpsy_condicionprof
+            psyem_condicionprof
             ON 
-                acpsy_profesionales.idCondicion = acpsy_condicionprof.idCondicion
+                psyem_profesionales.idCondicion = psyem_condicionprof.idCondicion
                 WHERE $item = :$item
-                ORDER BY acpsy_profesionales.apellidosProfesional ASC");
+                ORDER BY psyem_profesionales.apellidosProfesional ASC");
             $stmt->bindParam(":" . $item, $valor, PDO::PARAM_STR);
             $stmt->execute();
             return $stmt->fetch();

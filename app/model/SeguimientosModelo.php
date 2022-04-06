@@ -6,91 +6,91 @@ class SeguimientosModelo
     {
         if ($item != null) {
             $stmt = Conexion::conectar()->prepare("SELECT
-            acpsy_seguimiento.idSeguimiento, 
-                date_format(acpsy_seguimiento.fRegistrSeg,'%d/%m/%Y') as fRegistrSeg, 
-            acpsy_seguimiento.idAtencionPac, 
-            acpsy_atencion.cuentaAtencion, 
-            acpsy_atencion.tipdocAtencion,
-            acpsy_atencion.nrodocAtencion,
-            acpsy_atencion.historiaAtencion, 
-            acpsy_atencion.nombAtencion, 
-            acpsy_atencion.apPaternoAtencion, 
-            acpsy_atencion.apMaternoAtencion, 
-            acpsy_seguimiento.idTipoSeguimiento, 
-            acpsy_tiposeguimiento.detaTipSeguimiento, 
-            acpsy_seguimiento.idMotSeguimiento, 
-            acpsy_motivoseguimiento.detaMotivoSef, 
-            acpsy_seguimiento.idProfesional, 
-            acpsy_profesionales.nombresProfesional, 
-            acpsy_profesionales.apellidosProfesional, 
-            acpsy_seguimiento.comunFamSeg, 
-            acpsy_seguimiento.idDiag1Seg, 
-            acpsy_diagnosticos.cieDiagnostico as cieP1,
-            acpsy_diagnosticos.detaDiagnostico as detaD1, 
-            acpsy_seguimiento.idDiag2Seg,
+            psyem_seguimiento.idSeguimiento, 
+                date_format(psyem_seguimiento.fRegistrSeg,'%d/%m/%Y') as fRegistrSeg, 
+            psyem_seguimiento.idAtencionPac, 
+            psyem_atencion.cuentaAtencion, 
+            psyem_atencion.tipdocAtencion,
+            psyem_atencion.nrodocAtencion,
+            psyem_atencion.historiaAtencion, 
+            psyem_atencion.nombAtencion, 
+            psyem_atencion.apPaternoAtencion, 
+            psyem_atencion.apMaternoAtencion, 
+            psyem_seguimiento.idTipoSeguimiento, 
+            psyem_tiposeguimiento.detaTipSeguimiento, 
+            psyem_seguimiento.idMotSeguimiento, 
+            psyem_motivoseguimiento.detaMotivoSef, 
+            psyem_seguimiento.idProfesional, 
+            psyem_profesionales.nombresProfesional, 
+            psyem_profesionales.apellidosProfesional, 
+            psyem_seguimiento.comunFamSeg, 
+            psyem_seguimiento.idDiag1Seg, 
+            psyem_diagnosticos.cieDiagnostico as cieP1,
+            psyem_diagnosticos.detaDiagnostico as detaD1, 
+            psyem_seguimiento.idDiag2Seg,
             dp2.cieDiagnostico as cieP2,
             dp2.detaDiagnostico as detD2, 		
-            acpsy_seguimiento.idFamAtSeg, 
-            acpsy_famatencion.nombApFamiliar,
-            acpsy_famatencion.telcelFamiliar,
-            acpsy_parentescofam.detaParentesco,
-            acpsy_seguimiento.idDiag1SegFam,
+            psyem_seguimiento.idFamAtSeg, 
+            psyem_famatencion.nombApFamiliar,
+            psyem_famatencion.telcelFamiliar,
+            psyem_parentescofam.detaParentesco,
+            psyem_seguimiento.idDiag1SegFam,
             df1.cieDiagnostico as cieDF1,
             df1.detaDiagnostico as detDF1,  
-            acpsy_seguimiento.idDiag2SegFam,
+            psyem_seguimiento.idDiag2SegFam,
             df2.cieDiagnostico as cieDF2,
             df2.detaDiagnostico as detDF2,   
-            acpsy_seguimiento.obsSeg, 
-            acpsy_seguimiento.idStatusSeg, 
-            acpsy_estatusseguimiento.detaStatusSeg
+            psyem_seguimiento.obsSeg, 
+            psyem_seguimiento.idStatusSeg, 
+            psyem_estatusseguimiento.detaStatusSeg
             FROM
-            acpsy_seguimiento
+            psyem_seguimiento
             INNER JOIN
-            acpsy_atencion
+            psyem_atencion
             ON 
-                acpsy_seguimiento.idAtencionPac = acpsy_atencion.idAtencion
+                psyem_seguimiento.idAtencionPac = psyem_atencion.idAtencion
             INNER JOIN
-            acpsy_profesionales
+            psyem_profesionales
             ON 
-                acpsy_seguimiento.idProfesional = acpsy_profesionales.idProfesional
+                psyem_seguimiento.idProfesional = psyem_profesionales.idProfesional
             INNER JOIN
-            acpsy_tiposeguimiento
+            psyem_tiposeguimiento
             ON 
-                acpsy_seguimiento.idTipoSeguimiento = acpsy_tiposeguimiento.idTipoSeguimiento
+                psyem_seguimiento.idTipoSeguimiento = psyem_tiposeguimiento.idTipoSeguimiento
             INNER JOIN
-            acpsy_motivoseguimiento
+            psyem_motivoseguimiento
             ON 
-                acpsy_seguimiento.idMotSeguimiento = acpsy_motivoseguimiento.idMotSeguimiento
+                psyem_seguimiento.idMotSeguimiento = psyem_motivoseguimiento.idMotSeguimiento
             INNER JOIN
-            acpsy_estatusseguimiento
+            psyem_estatusseguimiento
             ON 
-                acpsy_seguimiento.idStatusSeg = acpsy_estatusseguimiento.idStatusSeg
+                psyem_seguimiento.idStatusSeg = psyem_estatusseguimiento.idStatusSeg
             LEFT JOIN
-            acpsy_famatencion
+            psyem_famatencion
             ON 
-                acpsy_seguimiento.idFamAtSeg = acpsy_famatencion.idFamiliar
+                psyem_seguimiento.idFamAtSeg = psyem_famatencion.idFamiliar
             INNER JOIN
-            acpsy_diagnosticos
+            psyem_diagnosticos
             ON 
-                acpsy_seguimiento.idDiag1Seg = acpsy_diagnosticos.idDiagnostico
+                psyem_seguimiento.idDiag1Seg = psyem_diagnosticos.idDiagnostico
             LEFT JOIN
-            acpsy_diagnosticos as dp2
+            psyem_diagnosticos as dp2
             ON 
-            acpsy_seguimiento.idDiag2Seg = dp2.idDiagnostico
+            psyem_seguimiento.idDiag2Seg = dp2.idDiagnostico
             LEFT JOIN
-            acpsy_diagnosticos as df1
+            psyem_diagnosticos as df1
             ON 
-            acpsy_seguimiento.idDiag1SegFam = df1.idDiagnostico
+            psyem_seguimiento.idDiag1SegFam = df1.idDiagnostico
             LEFT JOIN
-            acpsy_diagnosticos as df2
+            psyem_diagnosticos as df2
             ON 
-            acpsy_seguimiento.idDiag2SegFam = df2.idDiagnostico
+            psyem_seguimiento.idDiag2SegFam = df2.idDiagnostico
             LEFT JOIN
-            acpsy_parentescofam
+            psyem_parentescofam
             ON
-            acpsy_famatencion.idParentesco = acpsy_parentescofam.idParentesco
+            psyem_famatencion.idParentesco = psyem_parentescofam.idParentesco
             WHERE $item = :$item
-            ORDER BY acpsy_seguimiento.fRegistrSeg desc, acpsy_seguimiento.idSeguimiento desc");
+            ORDER BY psyem_seguimiento.fRegistrSeg desc, psyem_seguimiento.idSeguimiento desc");
             $stmt->bindParam(":" . $item, $valor, PDO::PARAM_STR);
             $stmt->execute();
             return $stmt->fetch();

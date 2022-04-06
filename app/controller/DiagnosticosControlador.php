@@ -131,7 +131,7 @@ class DiagnosticosControlador
                 echo '<script>
                         Swal.fire({
                             icon: "success",
-                            title: "¡El profesional ha sido eliminado con éxito!",
+                            title: "¡El diagnóstico ha sido eliminado con éxito!",
                             showConfirmButton: false,
                             timer: 1500
                         });
@@ -144,7 +144,7 @@ class DiagnosticosControlador
                 echo '<script>
                         Swal.fire({
                             icon: "error",
-                            title: "¡El profesional ha podido ser eliminado!",
+                            title: "¡El diagnóstico ha podido ser eliminado!",
                             showConfirmButton: false,
                             timer: 1500
                         });

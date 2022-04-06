@@ -6,13 +6,13 @@ class DiagnosticosModelo
     {
         if ($item != null) {
             $stmt = Conexion::conectar()->prepare("SELECT
-            acpsy_diagnosticos.idDiagnostico,
-            acpsy_diagnosticos.cieDiagnostico,
-            acpsy_diagnosticos.detaDiagnostico 
+            psyem_diagnosticos.idDiagnostico,
+            psyem_diagnosticos.cieDiagnostico,
+            psyem_diagnosticos.detaDiagnostico 
             FROM
-                acpsy_diagnosticos 
+                psyem_diagnosticos 
             WHERE $item = :$item
-            ORDER BY acpsy_diagnosticos.cieDiagnostico");
+            ORDER BY psyem_diagnosticos.cieDiagnostico");
             $stmt->bindParam(":" . $item, $valor, PDO::PARAM_STR);
             $stmt->execute();
             return $stmt->fetch();

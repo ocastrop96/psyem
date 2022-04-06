@@ -77,46 +77,46 @@ class AtencionesModelo
     {
         if ($item != null) {
             $stmt = Conexion::conectar()->prepare("SELECT
-            acpsy_atencion.idAtencion,
-            acpsy_atencion.idEpisodio, 
-            acpsy_atencion.correlativo_Atencion, 
-            date_format(acpsy_atencion.fRegistroAtencion,'%d/%m/%Y') as fRegistroAtencion, 
-            acpsy_atencion.cuentaAtencion, 
-            acpsy_atencion.historiaAtencion, 
-            acpsy_atencion.idEstadoPacAtencion, 
-            acpsy_estadopaciente.detaEstadoPacAtencion, 
-            date_format(acpsy_atencion.fechaPacNacimiento,'%d/%m/%Y')as fechaPacNacimiento, 
-            acpsy_atencion.tipdocAtencion, 
-            acpsy_atencion.nrodocAtencion, 
-            acpsy_atencion.apPaternoAtencion, 
-            acpsy_atencion.apMaternoAtencion, 
-            acpsy_atencion.nombAtencion, 
-            date_format(acpsy_atencion.fIngresoAtencion,'%d/%m/%Y')as fIngresoAtencion, 
-            acpsy_atencion.servAtencion, 
-            acpsy_atencion.camaAtencion, 
-            acpsy_atencion.distritoAtencion, 
-            acpsy_atencion.edadAtencion, 
-            acpsy_atencion.tipSexoAtencion, 
-            acpsy_tipsexo.detaTipSexo, 
-            acpsy_atencion.financiaAtencion, 
-            acpsy_atencion.idEstadoAte, 
-            acpsy_estadoatencion.detaEstadoAte
+            psyem_atencion.idAtencion,
+            psyem_atencion.idEpisodio, 
+            psyem_atencion.correlativo_Atencion, 
+            date_format(psyem_atencion.fRegistroAtencion,'%d/%m/%Y') as fRegistroAtencion, 
+            psyem_atencion.cuentaAtencion, 
+            psyem_atencion.historiaAtencion, 
+            psyem_atencion.idEstadoPacAtencion, 
+            psyem_estadopaciente.detaEstadoPacAtencion, 
+            date_format(psyem_atencion.fechaPacNacimiento,'%d/%m/%Y')as fechaPacNacimiento, 
+            psyem_atencion.tipdocAtencion, 
+            psyem_atencion.nrodocAtencion, 
+            psyem_atencion.apPaternoAtencion, 
+            psyem_atencion.apMaternoAtencion, 
+            psyem_atencion.nombAtencion, 
+            date_format(psyem_atencion.fIngresoAtencion,'%d/%m/%Y')as fIngresoAtencion, 
+            psyem_atencion.servAtencion, 
+            psyem_atencion.camaAtencion, 
+            psyem_atencion.distritoAtencion, 
+            psyem_atencion.edadAtencion, 
+            psyem_atencion.tipSexoAtencion, 
+            psyem_tipsexo.detaTipSexo, 
+            psyem_atencion.financiaAtencion, 
+            psyem_atencion.idEstadoAte, 
+            psyem_estadoatencion.detaEstadoAte
             FROM
-            acpsy_atencion
+            psyem_atencion
             INNER JOIN
-            acpsy_estadoatencion
+            psyem_estadoatencion
             ON 
-                acpsy_atencion.idEstadoAte = acpsy_estadoatencion.idEstadoAte
+                psyem_atencion.idEstadoAte = psyem_estadoatencion.idEstadoAte
             INNER JOIN
-            acpsy_estadopaciente
+            psyem_estadopaciente
             ON 
-                acpsy_atencion.idEstadoPacAtencion = acpsy_estadopaciente.idEstadoPacAtencion
+                psyem_atencion.idEstadoPacAtencion = psyem_estadopaciente.idEstadoPacAtencion
             INNER JOIN
-            acpsy_tipsexo
+            psyem_tipsexo
             ON 
-                acpsy_atencion.tipSexoAtencion = acpsy_tipsexo.idTipSexo
+                psyem_atencion.tipSexoAtencion = psyem_tipsexo.idTipSexo
             WHERE $item = :$item
-            ORDER BY acpsy_atencion.correlativo_Atencion DESC");
+            ORDER BY psyem_atencion.correlativo_Atencion DESC");
             $stmt->bindParam(":" . $item, $valor, PDO::PARAM_STR);
             $stmt->execute();
             return $stmt->fetch();

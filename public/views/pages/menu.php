@@ -1,21 +1,23 @@
-<aside class="main-sidebar elevation-4 sidebar-light-teal">
+<aside class="main-sidebar elevation-4 sidebar-light-info">
   <!-- Brand Logo -->
   <a href="dashboard" class="brand-link">
     <img src="public/views/resources/img/acpsy-logo-main.png" alt="ACPSY-logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-    <span class="brand-text font-weight-bolder">ACPSY-Web</span>
+    <span class="brand-text font-weight-bolder">PSYEM-Web</span>
   </a>
 
   <div class="sidebar">
-    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+    <div class="user-panel mt-3 pb-3 d-flex">
       <div class="image">
         <img src="public/views/resources/img/logo-usuario-psico.jpg" class="img-circle elevation-2" alt="User Image">
       </div>
       <div class="info">
-        <a href="dashboard" class="d-block font-weight-bolder">Hola! <br><?php echo $_SESSION["loginNombres"]; ?><br></a><p class="font-italic"><?php echo $_SESSION["loginPerfilDesc"]; ?></p>
+        <a href="dashboard" class="d-block font-weight-bolder">Hola! <br><?php echo $_SESSION["loginNombres"]; ?><br>
+          <p class="font-italic"><?php echo $_SESSION["loginPerfilDesc"]; ?></p>
+        </a>
       </div>
     </div>
     <nav class="mt-2">
-      <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+      <ul class="nav nav-pills nav-sidebar nav-compact" data-widget="treeview" role="menu" data-accordion="false">
         <li class="nav-item">
           <a href="dashboard" class="nav-link">
             <i class="nav-icon fas fa-tachometer-alt"></i>

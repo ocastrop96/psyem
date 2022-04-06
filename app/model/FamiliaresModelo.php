@@ -6,39 +6,39 @@ class FamiliaresModelo
     {
         if ($item != null) {
             $stmt = Conexion::conectar()->prepare("SELECT
-            acpsy_famatencion.idFamiliar,
-            date_format(acpsy_famatencion.fechaRegistro,'%d/%m/%Y') as fechaRegistro, 
-            acpsy_famatencion.idAtencion, 
-            acpsy_atencion.cuentaAtencion, 
-            acpsy_atencion.historiaAtencion, 
-            acpsy_atencion.apPaternoAtencion, 
-            acpsy_atencion.apMaternoAtencion, 
-            acpsy_atencion.nombAtencion, 
-            acpsy_famatencion.tipdocFamiliar, 
-            acpsy_famatencion.ndocFamiliar, 
-            acpsy_famatencion.nombApFamiliar, 
-            acpsy_famatencion.idParentesco, 
-            acpsy_parentescofam.detaParentesco, 
-            acpsy_famatencion.idTipSexo, 
-            acpsy_tipsexo.detaTipSexo, 
-            acpsy_famatencion.edadFamiliar, 
-            acpsy_famatencion.telcelFamiliar
+            psyem_famatencion.idFamiliar,
+            date_format(psyem_famatencion.fechaRegistro,'%d/%m/%Y') as fechaRegistro, 
+            psyem_famatencion.idAtencion, 
+            psyem_atencion.cuentaAtencion, 
+            psyem_atencion.historiaAtencion, 
+            psyem_atencion.apPaternoAtencion, 
+            psyem_atencion.apMaternoAtencion, 
+            psyem_atencion.nombAtencion, 
+            psyem_famatencion.tipdocFamiliar, 
+            psyem_famatencion.ndocFamiliar, 
+            psyem_famatencion.nombApFamiliar, 
+            psyem_famatencion.idParentesco, 
+            psyem_parentescofam.detaParentesco, 
+            psyem_famatencion.idTipSexo, 
+            psyem_tipsexo.detaTipSexo, 
+            psyem_famatencion.edadFamiliar, 
+            psyem_famatencion.telcelFamiliar
         FROM
-            acpsy_famatencion
+            psyem_famatencion
             INNER JOIN
-            acpsy_atencion
+            psyem_atencion
             ON 
-                acpsy_famatencion.idAtencion = acpsy_atencion.idAtencion
+                psyem_famatencion.idAtencion = psyem_atencion.idAtencion
             INNER JOIN
-            acpsy_parentescofam
+            psyem_parentescofam
             ON 
-                acpsy_famatencion.idParentesco = acpsy_parentescofam.idParentesco
+                psyem_famatencion.idParentesco = psyem_parentescofam.idParentesco
             INNER JOIN
-            acpsy_tipsexo
+            psyem_tipsexo
             ON 
-                acpsy_famatencion.idTipSexo = acpsy_tipsexo.idTipSexo
+                psyem_famatencion.idTipSexo = psyem_tipsexo.idTipSexo
             WHERE $item = :$item
-            ORDER BY acpsy_famatencion.fechaRegistro DESC");
+            ORDER BY psyem_famatencion.fechaRegistro DESC");
             $stmt->bindParam(":" . $item, $valor, PDO::PARAM_STR);
             $stmt->execute();
             return $stmt->fetch();

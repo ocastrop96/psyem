@@ -17,7 +17,7 @@ class UsuariosControlador
                     if ($rptLogin["idEstado"] == 1) {
                         // VALIDANDO INTENTOS REGISTRADOS
                         if ($rptLogin["intentosUsuario"] <= 3) {
-                            $_SESSION["loginACPSY"] = "ok";
+                            $_SESSION["loginPSYEM"] = "ok";
                             $_SESSION["loginId"] = $rptLogin["idUsuario"];
                             $_SESSION["loginIdCard"] = $rptLogin["dniUsuario"];
                             $_SESSION["loginPerfil"] = $rptLogin["idPerfil"];

@@ -24,32 +24,32 @@ class UsuariosModelo
     {
         if ($item != null) {
             $stmt = Conexion::conectar()->prepare("SELECT
-            acpsy_usuarios.idUsuario, 
-            acpsy_usuarios.dniUsuario, 
-            acpsy_usuarios.apellidosUsuario, 
-            acpsy_usuarios.nombresUsuario, 
-            acpsy_usuarios.cuentaUsuario, 
-            acpsy_usuarios.correoUsuario, 
-            acpsy_usuarios.claveUsuario, 
-            acpsy_usuarios.intentosUsuario,
-            acpsy_usuarios.fechaAlta, 
-            acpsy_usuarios.profileUsuario, 
-            acpsy_usuarios.idPerfil, 
-            acpsy_perfiles.detallePerfil, 
-            acpsy_usuarios.idEstado, 
-            acpsy_estadosu.detalleEstadoU
+            psyem_usuarios.idUsuario, 
+            psyem_usuarios.dniUsuario, 
+            psyem_usuarios.apellidosUsuario, 
+            psyem_usuarios.nombresUsuario, 
+            psyem_usuarios.cuentaUsuario, 
+            psyem_usuarios.correoUsuario, 
+            psyem_usuarios.claveUsuario, 
+            psyem_usuarios.intentosUsuario,
+            psyem_usuarios.fechaAlta, 
+            psyem_usuarios.profileUsuario, 
+            psyem_usuarios.idPerfil, 
+            psyem_perfiles.detallePerfil, 
+            psyem_usuarios.idEstado, 
+            psyem_estadosu.detalleEstadoU
         FROM
-            acpsy_usuarios
+            psyem_usuarios
             INNER JOIN
-            acpsy_perfiles
+            psyem_perfiles
             ON 
-                acpsy_usuarios.idPerfil = acpsy_perfiles.idPerfil
+                psyem_usuarios.idPerfil = psyem_perfiles.idPerfil
             INNER JOIN
-            acpsy_estadosu
+            psyem_estadosu
             ON 
-		acpsy_usuarios.idEstado = acpsy_estadosu.idEstado 
+		psyem_usuarios.idEstado = psyem_estadosu.idEstado 
         WHERE $item = :$item 
-            ORDER BY acpsy_usuarios.idPerfil ASC");
+            ORDER BY psyem_usuarios.idPerfil ASC");
             $stmt->bindParam(":" . $item, $valor, PDO::PARAM_STR);
             $stmt->execute();
             return $stmt->fetch();
@@ -67,10 +67,10 @@ class UsuariosModelo
     {
         if ($item != null) {
             $stmt = Conexion::conectar()->prepare("SELECT
-            acpsy_perfiles.idPerfil, 
-            acpsy_perfiles.detallePerfil
+            psyem_perfiles.idPerfil, 
+            psyem_perfiles.detallePerfil
         FROM
-            acpsy_perfiles WHERE $item = :$item");
+            psyem_perfiles WHERE $item = :$item");
             $stmt->bindParam(":" . $item, $valor, PDO::PARAM_STR);
             $stmt->execute();
             return $stmt->fetch();

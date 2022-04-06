@@ -1,11 +1,11 @@
 <div class="login-page">
     <div class="login-box">
-        <div class="card card-outline card-success">
+        <div class="card card-outline card-info">
             <div class="login-logo">
                 <img src="public/views/resources/img/acpsy-logo-main.png" class="img-responsive" style="padding:10px 50px 0px 50px">
             </div>
             <div class="card-body">
-                <p class="login-box-msg font-weight-bold h5 text-secondary">Acompañamiento Psicológico <br> HNSEB <br><span class="font-italic h6">v.2021.01</span></p>
+                <p class="login-box-msg font-weight-bold h5 text-secondary">Acompañamiento Psicológico de Emergencia <br> HNSEB <br><span class="font-italic h6">v.2022.04.02</span></p>
                 <form action="" method="post" id="frmLogin">
                     <div id="mensajeLog" class="d-none">
                         <div class="alert alert-danger alert-dismissible">
@@ -32,7 +32,7 @@
                     </div>
                     <div class="row">
                         <div class="col-8 ml-5">
-                            <button type="submit" class="btn btn-success btn-block btn-flat rounded" id="btnLogin">Iniciar sesión</button>
+                            <button type="submit" class="btn btn-info btn-block btn-flat rounded" id="btnLogin">Iniciar sesión</button>
                         </div>
                     </div>
                     <?php
