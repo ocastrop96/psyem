@@ -412,6 +412,10 @@ if ($_SESSION["loginPerfil"] == 1) {
               <div class="form-group">
                 <label for="edtSegDp1">Diagnóstico 1: <span class="text-danger">&nbsp;*</span></label>
                 <i class="fas fa-stethoscope"></i>
+
+                <span class="font-weight-bolder text-danger" id="seleccionActual25">ACTUAL : </span>
+                <span class="font-weight-bolder" id="seleccionActual252"></span>
+
                 <div class="input-group">
                   <select class="form-control" id="edtSegDp1" name="edtSegDp1">
                     <option id="edtSegDp11"></option>
@@ -433,6 +437,8 @@ if ($_SESSION["loginPerfil"] == 1) {
               <div class="form-group">
                 <label for="edtSegDp2">Actividad (OPCIONAL): &nbsp;</label>
                 <i class="fas fa-stethoscope"></i>
+                <span class="font-weight-bolder text-danger" id="seleccionActual26">ACTUAL : </span>
+                <span class="font-weight-bolder" id="seleccionActual262"></span>
                 <div class="input-group">
                   <select class="form-control" id="edtSegDp2" name="edtSegDp2">
                     <option id="edtSegDp21"></option>
@@ -490,6 +496,8 @@ if ($_SESSION["loginPerfil"] == 1) {
                   <div class="form-group">
                     <label for="edtSegDf1">Diagnóstico 1: <span class="text-danger">&nbsp;*</span></label>
                     <i class="fas fa-stethoscope"></i>
+                    <span class="font-weight-bolder text-danger" id="seleccionActual27">ACTUAL : </span>
+                    <span class="font-weight-bolder" id="seleccionActual272"></span>
                     <div class="input-group">
                       <select class="form-control" id="edtSegDf1" name="edtSegDf1">
                         <option id="edtSegDf11"></option>
@@ -511,6 +519,8 @@ if ($_SESSION["loginPerfil"] == 1) {
                   <div class="form-group">
                     <label for="edtSegDf2">Actividad (OPCIONAL): &nbsp;</label>
                     <i class="fas fa-stethoscope"></i>
+                    <span class="font-weight-bolder text-danger" id="seleccionActual28">ACTUAL : </span>
+                    <span class="font-weight-bolder" id="seleccionActual282"></span>
                     <div class="input-group">
                       <select class="form-control" id="edtSegDf2" name="edtSegDf2">
                         <option id="edtSegDf21">Seleccione Actividad (Opcional)</option>

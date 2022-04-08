@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 06-04-2022 a las 21:10:41
+-- Tiempo de generación: 08-04-2022 a las 21:08:08
 -- Versión del servidor: 5.7.33
 -- Versión de PHP: 7.4.25
 
@@ -3212,7 +3212,10 @@ CREATE TABLE `psyem_seguimiento` (
 --
 
 INSERT INTO `psyem_seguimiento` (`idSeguimiento`, `fRegistrSeg`, `idUsuario`, `idAtencionPac`, `idProfesional`, `idTipoSeguimiento`, `idMotSeguimiento`, `idDiag1Seg`, `idDiag2Seg`, `comunFamSeg`, `idFamAtSeg`, `idDiag1SegFam`, `idDiag2SegFam`, `obsSeg`, `idStatusSeg`, `registroSistema`) VALUES
-(1, '2022-04-06', 10, 2, 8, 2, 1, 434, 433, 'SI', 1, 8, 20, 'XD', 1, '2022-04-06 18:25:49');
+(1, '2022-04-06', 10, 2, 8, 2, 1, 434, 433, 'SI', 1, 8, 20, 'XD', 1, '2022-04-06 18:25:49'),
+(2, '2022-04-07', 10, 1, 8, 2, 1, 16, 0, 'SI', 2, 7, 9, 'XD', 1, '2022-04-07 19:07:07'),
+(3, '2022-04-07', 10, 1, 8, 2, 1, 18, 12, 'NO', 0, 0, 0, '', 1, '2022-04-07 19:47:43'),
+(4, '2022-04-05', 10, 1, 8, 2, 1, 192, 0, 'NO', 0, 0, 0, '', 1, '2022-04-07 20:06:19');
 
 -- --------------------------------------------------------
 
@@ -3551,7 +3554,7 @@ ALTER TABLE `psyem_profesionales`
 -- AUTO_INCREMENT de la tabla `psyem_seguimiento`
 --
 ALTER TABLE `psyem_seguimiento`
-  MODIFY `idSeguimiento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idSeguimiento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `psyem_tiposeguimiento`

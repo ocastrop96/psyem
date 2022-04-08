@@ -528,6 +528,8 @@ $("#edtSegTip").on("change", function () {
 // COMUNICA FAMILIAR
 $("#comSi").click(function () {
     if ($("#comSi").is(":checked")) {
+        let temEtiqueta = "<option value='0'>Seleccione</option>";
+
         $("#comFami").val("SI");
         $("#block1").removeClass("d-none");
         $("#rgSegFam")[0].selectedIndex = 0;
@@ -535,17 +537,28 @@ $("#comSi").click(function () {
         $("#rgSegDf1")[0].selectedIndex = 0;
         $("#rgSegDf2").empty().trigger('change')
         $("#rgSegDf2")[0].selectedIndex = 0;
+
+
+        $("#rgSegDf1").html(temEtiqueta);
+        $("#rgSegDf2").html(temEtiqueta);
+
     } else {
         $("#comFami").val("NO");
     }
 });
 $("#comNo").click(function () {
     if ($("#comNo").is(":checked")) {
+        let temEtiqueta = "<option value='0'>Seleccione</option>";
+
         $("#comFami").val("NO");
         $("#block1").addClass("d-none");
+        $("#rgSegDf1").empty().trigger('change')
+        $("#rgSegDf2").empty().trigger('change')
         $("#rgSegFam")[0].selectedIndex = 0;
         $("#rgSegDf1")[0].selectedIndex = 0;
         $("#rgSegDf2")[0].selectedIndex = 0;
+        $("#rgSegDf1").html(temEtiqueta);
+        $("#rgSegDf2").html(temEtiqueta);
     } else {
         $("#comFami").val("SI");
     }
@@ -936,7 +949,29 @@ $(".datatableSeguimiento tbody").on("click", ".btnEditarSeguimiento", function (
                     $("#edtSegTip1").html(respuesta["detaTipSeguimiento"]);
                     $("#edtSegMot1").val(respuesta["idMotSeguimiento"]);
                     $("#edtSegMot1").html(respuesta["detaMotivoSef"]);
-                    $("#seleccionActual21").html(respuesta["cuentaAtencion"] + " || " + respuesta["tipdocAtencion"] + "-" + respuesta["nrodocAtencion"] + " - " + respuesta["nombAtencion"] + " " + respuesta["apPaternoAtencion"] + " " + respuesta["apMaternoAtencion"]);
+
+                    let base = respuesta["detaD1"];
+                    let recorte = base.substring(0, 50);
+
+                    $("#seleccionActual252").html(respuesta["cieP1"] + " || " + recorte);
+
+                    if (respuesta["idDiag2Seg"] != 0) {
+                        let base2 = respuesta["detD2"];
+                        let recorte2 = base2.substring(0, 50);
+                        $("#seleccionActual262").html(respuesta["cieP2"] + " || " + recorte2);
+                    }
+
+
+                    // $("#seleccionActual272").html(respuesta["cieDF1"] + " || " + respuesta["detDF1"]);
+                    // $("#seleccionActual282").html(respuesta["detDF2"] + " || " + respuesta["detDF2"]);
+
+
+
+
+
+                    $("#seleccionActual21").html(respuesta["cuentaAtencion"] + " - " + respuesta["tipdocAtencion"] + "-" + respuesta["nrodocAtencion"] + " - " + respuesta["nombAtencion"] + " " + respuesta["apPaternoAtencion"] + " " + respuesta["apMaternoAtencion"]);
+
+
                     $("#edtSegPac1").val(respuesta["idAtencionPac"]);
                     $("#edtSegPac1").html(respuesta["cuentaAtencion"] + " || " + respuesta["tipdocAtencion"] + "-" + respuesta["nrodocAtencion"] + " - " + respuesta["nombAtencion"] + " " + respuesta["apPaternoAtencion"] + " " + respuesta["apMaternoAtencion"]);
                     // Condicionales en caso del tipo de tipSeguimiento
