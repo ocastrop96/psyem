@@ -440,7 +440,7 @@ if ($_SESSION["loginPerfil"] == 1) {
                 <span class="font-weight-bolder text-danger" id="seleccionActual26">ACTUAL : </span>
                 <span class="font-weight-bolder" id="seleccionActual262"></span>
                 <div class="input-group">
-                  <select class="form-control" id="edtSegDp2" name="edtSegDp2">
+                  <select class="form-control edtSegDp2" id="edtSegDp2" name="edtSegDp2" style="width: 100%;">
                     <option id="edtSegDp21"></option>
                   </select>
                 </div>
@@ -499,7 +499,7 @@ if ($_SESSION["loginPerfil"] == 1) {
                     <span class="font-weight-bolder text-danger" id="seleccionActual27">ACTUAL : </span>
                     <span class="font-weight-bolder" id="seleccionActual272"></span>
                     <div class="input-group">
-                      <select class="form-control" id="edtSegDf1" name="edtSegDf1">
+                      <select class="form-control edtSegDf1" id="edtSegDf1" name="edtSegDf1" style="width: 100%;">
                         <option id="edtSegDf11"></option>
                         <?php
                         $item = null;
@@ -522,7 +522,7 @@ if ($_SESSION["loginPerfil"] == 1) {
                     <span class="font-weight-bolder text-danger" id="seleccionActual28">ACTUAL : </span>
                     <span class="font-weight-bolder" id="seleccionActual282"></span>
                     <div class="input-group">
-                      <select class="form-control" id="edtSegDf2" name="edtSegDf2">
+                      <select class="form-control edtSegDf2" id="edtSegDf2" name="edtSegDf2" style="width: 100%;">
                         <option id="edtSegDf21">Seleccione Actividad (Opcional)</option>
                       </select>
                     </div>

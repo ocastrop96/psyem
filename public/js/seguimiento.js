@@ -368,6 +368,15 @@ $(".edtSegDp1").select2(
                 };
             },
             processResults: function (response) {
+                $("#seleccionActual25").addClass("d-none");
+                $("#seleccionActual252").addClass("d-none");
+
+                $("#seleccionActual26").addClass("d-none");
+                $("#seleccionActual262").addClass("d-none");
+
+                $(".edtSegDp2").empty().trigger('change');
+                $("#edtSegDp2").val("0");
+                $("#edtSegDp2").html("Seleccione Actividad (Opcional)");
                 return {
                     results: response,
                 };
@@ -422,7 +431,51 @@ $(".rgSegDp2").select2(
     }
 );
 
+$(".edtSegDp2").select2(
+    {
+        maximumInputLength: "12",
+        minimumInputLength: "2",
+        language: {
 
+            noResults: function () {
+
+                return "No hay resultado";
+            },
+            searching: function () {
+
+                return "Buscando Diagnóstico Principal ...";
+            },
+            inputTooShort: function () {
+                return "Ingrese 2 o más caracteres";
+            },
+            inputTooLong: function () {
+                return "Ingrese máximo 12 caracteres";
+            }
+        },
+        scrollAfterSelect: true,
+        placeholder: 'Ingrese CIE 10 o Descripción del Dx',
+        ajax: {
+            url: "public/views/src/ajaxDiagnosticos.php",
+            type: "post",
+            dataType: "json",
+            delay: 200,
+            data: function (params) {
+                return {
+                    searchTerm2: params.term,
+                    excluido: $("#edtSegDp1").val(),
+                };
+            },
+            processResults: function (response) {
+                $("#seleccionActual26").addClass("d-none");
+                $("#seleccionActual262").addClass("d-none");
+                return {
+                    results: response,
+                };
+            },
+            cache: true,
+        },
+    }
+);
 $(".rgSegDf1").select2(
     {
         maximumInputLength: "12",
@@ -465,7 +518,57 @@ $(".rgSegDf1").select2(
         },
     }
 );
+$(".edtSegDf1").select2(
+    {
+        maximumInputLength: "12",
+        minimumInputLength: "2",
+        language: {
 
+            noResults: function () {
+
+                return "No hay resultado";
+            },
+            searching: function () {
+
+                return "Buscando Diagnóstico Principal ...";
+            },
+            inputTooShort: function () {
+                return "Ingrese 2 o más caracteres";
+            },
+            inputTooLong: function () {
+                return "Ingrese máximo 12 caracteres";
+            }
+        },
+        scrollAfterSelect: true,
+        placeholder: 'Ingrese CIE 10 o Descripción del Dx',
+        ajax: {
+            url: "public/views/src/ajaxDiagnosticos.php",
+            type: "post",
+            dataType: "json",
+            delay: 200,
+            data: function (params) {
+                return {
+                    searchTerm: params.term,
+                };
+            },
+            processResults: function (response) {
+                $("#seleccionActual27").addClass("d-none");
+                $("#seleccionActual272").addClass("d-none");
+
+                $("#seleccionActual28").addClass("d-none");
+                $("#seleccionActual282").addClass("d-none");
+
+                $(".edtSegDf2").empty().trigger('change');
+                $("#edtSegDf2").val("0");
+                $("#edtSegDf2").html("Seleccione Actividad (Opcional)");
+                return {
+                    results: response,
+                };
+            },
+            cache: true,
+        },
+    }
+);
 $(".rgSegDf2").select2(
     {
         maximumInputLength: "12",
@@ -510,6 +613,51 @@ $(".rgSegDf2").select2(
     }
 );
 
+$(".edtSegDf2").select2(
+    {
+        maximumInputLength: "12",
+        minimumInputLength: "2",
+        language: {
+
+            noResults: function () {
+
+                return "No hay resultado";
+            },
+            searching: function () {
+
+                return "Buscando Diagnóstico Principal ...";
+            },
+            inputTooShort: function () {
+                return "Ingrese 2 o más caracteres";
+            },
+            inputTooLong: function () {
+                return "Ingrese máximo 12 caracteres";
+            }
+        },
+        scrollAfterSelect: true,
+        placeholder: 'Ingrese CIE 10 o Descripción del Dx',
+        ajax: {
+            url: "public/views/src/ajaxDiagnosticos.php",
+            type: "post",
+            dataType: "json",
+            delay: 200,
+            data: function (params) {
+                return {
+                    searchTerm2: params.term,
+                    excluido: $("#edtSegDf1").val(),
+                };
+            },
+            processResults: function (response) {
+                $("#seleccionActual28").addClass("d-none");
+                $("#seleccionActual282").addClass("d-none");
+                return {
+                    results: response,
+                };
+            },
+            cache: true,
+        },
+    }
+);
 $("#rgSegFec").inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' });
 $('#rgSegFec').datepicker({
     'format': 'dd/mm/yyyy',
@@ -971,6 +1119,14 @@ $(".datatableSeguimiento tbody").on("click", ".btnEditarSeguimiento", function (
     var idSeguimiento = $(this).attr("idSeguimiento");
     var idProfesional = $(this).attr("idProfesional");
     var idProfesional2 = $("#idProfH").val();
+
+    // Ocultar etiquetas en el caso de no encontrar valores alternativos
+    $("#seleccionActual26").addClass("d-none");
+    $("#seleccionActual27").addClass("d-none");
+    $("#seleccionActual28").addClass("d-none");
+
+    // Ocultar etiquetas en el caso de no encontrar valores alternativos
+
     if (idProfesional2 != 0) {
         if (idProfesional == idProfesional2) {
             var datos = new FormData();
@@ -995,13 +1151,13 @@ $(".datatableSeguimiento tbody").on("click", ".btnEditarSeguimiento", function (
                     $("#edtSegMot1").html(respuesta["detaMotivoSef"]);
 
                     // let base = respuesta["detaD1"];
-                    // let recorte = base.substring(0, 50);
+                    // let recorte = base.substring(0, 60);
 
                     // $("#seleccionActual252").html(respuesta["cieP1"] + " || " + recorte);
 
                     // if (respuesta["idDiag2Seg"] != 0) {
                     //     let base2 = respuesta["detD2"];
-                    //     let recorte2 = base2.substring(0, 50);
+                    //     let recorte2 = base2.substring(0, 60);
                     //     $("#seleccionActual262").html(respuesta["cieP2"] + " || " + recorte2);
                     // }
 
@@ -1037,10 +1193,22 @@ $(".datatableSeguimiento tbody").on("click", ".btnEditarSeguimiento", function (
                     if (respuesta["idDiag1Seg"] != 0) {
                         $("#edtSegDp11").val(respuesta["idDiag1Seg"]);
                         $("#edtSegDp11").html(respuesta["cieP1"] + " - " + respuesta["detaD1"]);
+
+                        let base = respuesta["detaD1"];
+                        let recorte = base.substring(0, 60);
+
+                        $("#seleccionActual252").html(respuesta["cieP1"] + " || " + recorte);
                     }
                     if (respuesta["idDiag2Seg"] != 0) {
+                        $("#seleccionActual26").removeClass("d-none");
+
                         $("#edtSegDp21").val(respuesta["idDiag2Seg"]);
                         $("#edtSegDp21").html(respuesta["cieP2"] + " - " + respuesta["detD2"]);
+
+                        let base = respuesta["detD2"];
+                        let recorte = base.substring(0, 60);
+
+                        $("#seleccionActual262").html(respuesta["cieP2"] + " || " + recorte);
                     }
                     else {
                         if (respuesta["idDiag1Seg"] != 0) {
@@ -1070,16 +1238,29 @@ $(".datatableSeguimiento tbody").on("click", ".btnEditarSeguimiento", function (
                     }
 
                     if (respuesta["idDiag1SegFam"] != 0) {
+                        $("#seleccionActual27").removeClass("d-none");
+
                         $("#edtSegDf11").val(respuesta["idDiag1SegFam"]);
                         $("#edtSegDf11").html(respuesta["cieDF1"] + " - " + respuesta["detDF1"]);
+
+                        let base = respuesta["detDF1"];
+                        let recorte = base.substring(0, 60);
+
+                        $("#seleccionActual272").html(respuesta["cieDF1"] + " || " + recorte);
                     }
                     else {
                         $("#edtSegDf11").val("0");
                         $("#edtSegDf11").html("Seleccione Diagnóstico");
                     }
                     if (respuesta["idDiag2SegFam"] != 0) {
+                        $("#seleccionActual28").removeClass("d-none");
+
                         $("#edtSegDf21").val(respuesta["idDiag2SegFam"]);
                         $("#edtSegDf21").html(respuesta["cieDF2"] + " - " + respuesta["detDF2"]);
+                        let base = respuesta["detDF2"];
+                        let recorte = base.substring(0, 60);
+
+                        $("#seleccionActual282").html(respuesta["cieDF2"] + " || " + recorte);
                     }
                     else {
                         if (respuesta["idDiag1SegFam"] != 0) {
@@ -1136,7 +1317,7 @@ $(".datatableSeguimiento tbody").on("click", ".btnEditarSeguimiento", function (
                 icon: "error",
                 title: "No tienes permiso para editar el seguimiento seleccionado",
                 showConfirmButton: false,
-                timer: 1500
+                timer: 1600
             });
             $("#modal-editar-seguimiento").modal("hide");
 
@@ -1148,7 +1329,7 @@ $(".datatableSeguimiento tbody").on("click", ".btnEditarSeguimiento", function (
             icon: "error",
             title: "No tienes permiso para editar el seguimiento seleccionado",
             showConfirmButton: false,
-            timer: 1500
+            timer: 1600
         });
     }
 });
@@ -1493,7 +1674,7 @@ $(".datatableSeguimiento tbody").on("click", ".btnAnularSeguimiento", function (
                 icon: "error",
                 title: "No tienes permiso para anular el seguimiento seleccionado",
                 showConfirmButton: false,
-                timer: 1500
+                timer: 1600
             });
         }
     }
@@ -1502,7 +1683,7 @@ $(".datatableSeguimiento tbody").on("click", ".btnAnularSeguimiento", function (
             icon: "error",
             title: "No tienes permiso para anular el seguimiento seleccionado",
             showConfirmButton: false,
-            timer: 1500
+            timer: 1600
         });
     }
 });
