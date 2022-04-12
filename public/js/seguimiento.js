@@ -334,6 +334,50 @@ $(".rgSegDp1").select2(
     }
 );
 
+$(".edtSegDp1").select2(
+    {
+        maximumInputLength: "12",
+        minimumInputLength: "2",
+        language: {
+
+            noResults: function () {
+
+                return "No hay resultado";
+            },
+            searching: function () {
+
+                return "Buscando Diagnóstico Principal ...";
+            },
+            inputTooShort: function () {
+                return "Ingrese 2 o más caracteres";
+            },
+            inputTooLong: function () {
+                return "Ingrese máximo 12 caracteres";
+            }
+        },
+        scrollAfterSelect: true,
+        placeholder: 'Ingrese CIE 10 o Descripción del Dx',
+        ajax: {
+            url: "public/views/src/ajaxDiagnosticos.php",
+            type: "post",
+            dataType: "json",
+            delay: 200,
+            data: function (params) {
+                return {
+                    searchTerm: params.term,
+                };
+            },
+            processResults: function (response) {
+                return {
+                    results: response,
+                };
+            },
+            cache: true,
+        },
+    }
+);
+
+
 $(".rgSegDp2").select2(
     {
         maximumInputLength: "12",
@@ -950,24 +994,20 @@ $(".datatableSeguimiento tbody").on("click", ".btnEditarSeguimiento", function (
                     $("#edtSegMot1").val(respuesta["idMotSeguimiento"]);
                     $("#edtSegMot1").html(respuesta["detaMotivoSef"]);
 
-                    let base = respuesta["detaD1"];
-                    let recorte = base.substring(0, 50);
+                    // let base = respuesta["detaD1"];
+                    // let recorte = base.substring(0, 50);
 
-                    $("#seleccionActual252").html(respuesta["cieP1"] + " || " + recorte);
+                    // $("#seleccionActual252").html(respuesta["cieP1"] + " || " + recorte);
 
-                    if (respuesta["idDiag2Seg"] != 0) {
-                        let base2 = respuesta["detD2"];
-                        let recorte2 = base2.substring(0, 50);
-                        $("#seleccionActual262").html(respuesta["cieP2"] + " || " + recorte2);
-                    }
+                    // if (respuesta["idDiag2Seg"] != 0) {
+                    //     let base2 = respuesta["detD2"];
+                    //     let recorte2 = base2.substring(0, 50);
+                    //     $("#seleccionActual262").html(respuesta["cieP2"] + " || " + recorte2);
+                    // }
 
 
                     // $("#seleccionActual272").html(respuesta["cieDF1"] + " || " + respuesta["detDF1"]);
                     // $("#seleccionActual282").html(respuesta["detDF2"] + " || " + respuesta["detDF2"]);
-
-
-
-
 
                     $("#seleccionActual21").html(respuesta["cuentaAtencion"] + " - " + respuesta["tipdocAtencion"] + "-" + respuesta["nrodocAtencion"] + " - " + respuesta["nombAtencion"] + " " + respuesta["apPaternoAtencion"] + " " + respuesta["apMaternoAtencion"]);
 

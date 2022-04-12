@@ -417,7 +417,7 @@ if ($_SESSION["loginPerfil"] == 1) {
                 <span class="font-weight-bolder" id="seleccionActual252"></span>
 
                 <div class="input-group">
-                  <select class="form-control" id="edtSegDp1" name="edtSegDp1">
+                  <select class="form-control edtSegDp1" id="edtSegDp1" name="edtSegDp1" style="width: 100%;">
                     <option id="edtSegDp11"></option>
                     <?php
                     $item = null;
