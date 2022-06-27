@@ -74,10 +74,14 @@ class SeguimientosControlador
                         "idMotSeguimiento" => $_POST["rgSegMot"],
                         "idDiag1Seg" => $_POST["rgSegDp1"],
                         "idDiag2Seg" => $_POST["rgSegDp2"],
+                        "idDiag3Seg" => $_POST["rgSegDp3"],
+                        "idDiag4Seg" => $_POST["rgSegDp4"],
                         "comunFamSeg" => $_POST["comunicaFamilia"],
                         "idFamAtSeg" => $_POST["rgSegFam"],
                         "idDiag1SegFam" => $_POST["rgSegDf1"],
                         "idDiag2SegFam" => $_POST["rgSegDf2"],
+                        "idDiag3SegFam" => $_POST["rgSegDf3"],
+                        "idDiag4SegFam" => $_POST["rgSegDf4"],
                         "obsSeg" => $_POST["rgSegObs"]
                     );
                     $rptRegistroSegui = SeguimientosModelo::mdlRegistrarSeguimiento($datos);
@@ -181,10 +185,16 @@ class SeguimientosControlador
                             "idMotSeguimiento" => $_POST["edtSegMot"],
                             "idDiag1Seg" => $_POST["edtSegDp1"],
                             "idDiag2Seg" => $_POST["edtSegDp2"],
+                            "idDiag3Seg" => $_POST["edtSegDp3"],
+                            "idDiag4Seg" => $_POST["edtSegDp4"],
+
                             "comunFamSeg" => $_POST["comunicaFamilia1"],
                             "idFamAtSeg" => $familiar,
                             "idDiag1SegFam" => $_POST["edtSegDf1"],
                             "idDiag2SegFam" => $_POST["edtSegDf2"],
+                            "idDiag3SegFam" => $_POST["edtSegDf3"],
+                            "idDiag4SegFam" => $_POST["edtSegDf4"],
+
                             "obsSeg" => $_POST["edtSegObs"]
                         );
                         $rptRegistroSegui = SeguimientosModelo::mdlEditarSeguimiento($datos);
@@ -227,10 +237,15 @@ class SeguimientosControlador
                         "idMotSeguimiento" => $_POST["edtSegMot"],
                         "idDiag1Seg" => $_POST["edtSegDp1"],
                         "idDiag2Seg" => $_POST["edtSegDp2"],
+                        "idDiag3Seg" => $_POST["edtSegDp3"],
+                        "idDiag4Seg" => $_POST["edtSegDp4"],
+
                         "comunFamSeg" => $_POST["comunicaFamilia1"],
                         "idFamAtSeg" => $familiar,
                         "idDiag1SegFam" => $_POST["edtSegDf1"],
                         "idDiag2SegFam" => $_POST["edtSegDf2"],
+                        "idDiag3SegFam" => $_POST["edtSegDf3"],
+                        "idDiag4SegFam" => $_POST["edtSegDf4"],
                         "obsSeg" => $_POST["edtSegObs"]
                     );
                     $rptRegistroSegui = SeguimientosModelo::mdlEditarSeguimiento($datos);

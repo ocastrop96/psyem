@@ -6,89 +6,72 @@ class SeguimientosModelo
     {
         if ($item != null) {
             $stmt = Conexion::conectar()->prepare("SELECT
-            psyem_seguimiento.idSeguimiento, 
-                date_format(psyem_seguimiento.fRegistrSeg,'%d/%m/%Y') as fRegistrSeg, 
-            psyem_seguimiento.idAtencionPac, 
-            psyem_atencion.cuentaAtencion, 
+            psyem_seguimiento.idSeguimiento,
+            date_format( psyem_seguimiento.fRegistrSeg, '%d/%m/%Y' ) AS fRegistrSeg,
+            psyem_seguimiento.idAtencionPac,
+            psyem_atencion.cuentaAtencion,
             psyem_atencion.tipdocAtencion,
             psyem_atencion.nrodocAtencion,
-            psyem_atencion.historiaAtencion, 
-            psyem_atencion.nombAtencion, 
-            psyem_atencion.apPaternoAtencion, 
-            psyem_atencion.apMaternoAtencion, 
-            psyem_seguimiento.idTipoSeguimiento, 
-            psyem_tiposeguimiento.detaTipSeguimiento, 
-            psyem_seguimiento.idMotSeguimiento, 
-            psyem_motivoseguimiento.detaMotivoSef, 
-            psyem_seguimiento.idProfesional, 
-            psyem_profesionales.nombresProfesional, 
-            psyem_profesionales.apellidosProfesional, 
-            psyem_seguimiento.comunFamSeg, 
-            psyem_seguimiento.idDiag1Seg, 
-            psyem_diagnosticos.cieDiagnostico as cieP1,
-            psyem_diagnosticos.detaDiagnostico as detaD1, 
+            psyem_atencion.historiaAtencion,
+            psyem_atencion.nombAtencion,
+            psyem_atencion.apPaternoAtencion,
+            psyem_atencion.apMaternoAtencion,
+            psyem_seguimiento.idTipoSeguimiento,
+            psyem_tiposeguimiento.detaTipSeguimiento,
+            psyem_seguimiento.idMotSeguimiento,
+            psyem_motivoseguimiento.detaMotivoSef,
+            psyem_seguimiento.idProfesional,
+            psyem_profesionales.nombresProfesional,
+            psyem_profesionales.apellidosProfesional,
+            psyem_seguimiento.comunFamSeg,
+            psyem_seguimiento.idDiag1Seg,
+            psyem_diagnosticos.cieDiagnostico AS cieP1,
+            psyem_diagnosticos.detaDiagnostico AS detaD1,
             psyem_seguimiento.idDiag2Seg,
-            dp2.cieDiagnostico as cieP2,
-            dp2.detaDiagnostico as detD2, 		
-            psyem_seguimiento.idFamAtSeg, 
+            dp2.cieDiagnostico AS cieP2,
+            dp2.detaDiagnostico AS detD2,
+            psyem_seguimiento.idDiag3Seg,
+            dp3.cieDiagnostico AS cieP3,
+            dp3.detaDiagnostico AS detD3,
+            psyem_seguimiento.idDiag4Seg,
+            dp4.cieDiagnostico AS cieP4,
+            dp4.detaDiagnostico AS detD4,
+            psyem_seguimiento.idFamAtSeg,
             psyem_famatencion.nombApFamiliar,
             psyem_famatencion.telcelFamiliar,
             psyem_parentescofam.detaParentesco,
             psyem_seguimiento.idDiag1SegFam,
-            df1.cieDiagnostico as cieDF1,
-            df1.detaDiagnostico as detDF1,  
+            df1.cieDiagnostico AS cieDF1,
+            df1.detaDiagnostico AS detDF1,
             psyem_seguimiento.idDiag2SegFam,
-            df2.cieDiagnostico as cieDF2,
-            df2.detaDiagnostico as detDF2,   
-            psyem_seguimiento.obsSeg, 
-            psyem_seguimiento.idStatusSeg, 
-            psyem_estatusseguimiento.detaStatusSeg
-            FROM
+            df2.cieDiagnostico AS cieDF2,
+            df2.detaDiagnostico AS detDF2,
+            psyem_seguimiento.idDiag3SegFam,
+            df3.cieDiagnostico AS cieDF3,
+            df3.detaDiagnostico AS detDF3,
+            psyem_seguimiento.idDiag4SegFam,
+            df4.cieDiagnostico AS cieDF4,
+            df4.detaDiagnostico AS detDF4,
+            psyem_seguimiento.obsSeg,
+            psyem_seguimiento.idStatusSeg,
+            psyem_estatusseguimiento.detaStatusSeg 
+        FROM
             psyem_seguimiento
-            INNER JOIN
-            psyem_atencion
-            ON 
-                psyem_seguimiento.idAtencionPac = psyem_atencion.idAtencion
-            INNER JOIN
-            psyem_profesionales
-            ON 
-                psyem_seguimiento.idProfesional = psyem_profesionales.idProfesional
-            INNER JOIN
-            psyem_tiposeguimiento
-            ON 
-                psyem_seguimiento.idTipoSeguimiento = psyem_tiposeguimiento.idTipoSeguimiento
-            INNER JOIN
-            psyem_motivoseguimiento
-            ON 
-                psyem_seguimiento.idMotSeguimiento = psyem_motivoseguimiento.idMotSeguimiento
-            INNER JOIN
-            psyem_estatusseguimiento
-            ON 
-                psyem_seguimiento.idStatusSeg = psyem_estatusseguimiento.idStatusSeg
-            LEFT JOIN
-            psyem_famatencion
-            ON 
-                psyem_seguimiento.idFamAtSeg = psyem_famatencion.idFamiliar
-            INNER JOIN
-            psyem_diagnosticos
-            ON 
-                psyem_seguimiento.idDiag1Seg = psyem_diagnosticos.idDiagnostico
-            LEFT JOIN
-            psyem_diagnosticos as dp2
-            ON 
-            psyem_seguimiento.idDiag2Seg = dp2.idDiagnostico
-            LEFT JOIN
-            psyem_diagnosticos as df1
-            ON 
-            psyem_seguimiento.idDiag1SegFam = df1.idDiagnostico
-            LEFT JOIN
-            psyem_diagnosticos as df2
-            ON 
-            psyem_seguimiento.idDiag2SegFam = df2.idDiagnostico
-            LEFT JOIN
-            psyem_parentescofam
-            ON
-            psyem_famatencion.idParentesco = psyem_parentescofam.idParentesco
+            INNER JOIN psyem_atencion ON psyem_seguimiento.idAtencionPac = psyem_atencion.idAtencion
+            INNER JOIN psyem_profesionales ON psyem_seguimiento.idProfesional = psyem_profesionales.idProfesional
+            INNER JOIN psyem_tiposeguimiento ON psyem_seguimiento.idTipoSeguimiento = psyem_tiposeguimiento.idTipoSeguimiento
+            INNER JOIN psyem_motivoseguimiento ON psyem_seguimiento.idMotSeguimiento = psyem_motivoseguimiento.idMotSeguimiento
+            INNER JOIN psyem_estatusseguimiento ON psyem_seguimiento.idStatusSeg = psyem_estatusseguimiento.idStatusSeg
+            LEFT JOIN psyem_famatencion ON psyem_seguimiento.idFamAtSeg = psyem_famatencion.idFamiliar
+            INNER JOIN psyem_diagnosticos ON psyem_seguimiento.idDiag1Seg = psyem_diagnosticos.idDiagnostico
+            LEFT JOIN psyem_diagnosticos AS dp2 ON psyem_seguimiento.idDiag2Seg = dp2.idDiagnostico
+            LEFT JOIN psyem_diagnosticos AS dp3 ON psyem_seguimiento.idDiag3Seg = dp3.idDiagnostico
+            LEFT JOIN psyem_diagnosticos AS dp4 ON psyem_seguimiento.idDiag4Seg = dp4.idDiagnostico
+            LEFT JOIN psyem_diagnosticos AS df1 ON psyem_seguimiento.idDiag1SegFam = df1.idDiagnostico
+            LEFT JOIN psyem_diagnosticos AS df2 ON psyem_seguimiento.idDiag2SegFam = df2.idDiagnostico
+            LEFT JOIN psyem_diagnosticos AS df3 ON psyem_seguimiento.idDiag3SegFam = df3.idDiagnostico
+            LEFT JOIN psyem_diagnosticos AS df4 ON psyem_seguimiento.idDiag4SegFam = df4.idDiagnostico
+            LEFT JOIN psyem_parentescofam ON psyem_famatencion.idParentesco = psyem_parentescofam.idParentesco 
             WHERE $item = :$item
             ORDER BY psyem_seguimiento.fRegistrSeg desc, psyem_seguimiento.idSeguimiento desc");
             $stmt->bindParam(":" . $item, $valor, PDO::PARAM_STR);
@@ -218,7 +201,7 @@ class SeguimientosModelo
     }
     static public function mdlRegistrarSeguimiento($datos)
     {
-        $stmt = Conexion::conectar()->prepare("CALL REGISTRAR_SEGUIMIENTO(:fRegistrSeg,:idUsuario,:idAtencionPac,:idProfesional,:idTipoSeguimiento,:idMotSeguimiento,:idDiag1Seg,:idDiag2Seg,:comunFamSeg,:idFamAtSeg,:idDiag1SegFam,:idDiag2SegFam,:obsSeg)");
+        $stmt = Conexion::conectar()->prepare("CALL REGISTRAR_SEGUIMIENTO(:fRegistrSeg,:idUsuario,:idAtencionPac,:idProfesional,:idTipoSeguimiento,:idMotSeguimiento,:idDiag1Seg,:idDiag2Seg,:idDiag3Seg,:idDiag4Seg,:comunFamSeg,:idFamAtSeg,:idDiag1SegFam,:idDiag2SegFam,:idDiag3SegFam,:idDiag4SegFam,:obsSeg)");
 
         $stmt->bindParam(":idUsuario", $datos["idUsuario"], PDO::PARAM_INT);
         $stmt->bindParam(":idAtencionPac", $datos["idAtencionPac"], PDO::PARAM_INT);
@@ -227,9 +210,13 @@ class SeguimientosModelo
         $stmt->bindParam(":idMotSeguimiento", $datos["idMotSeguimiento"], PDO::PARAM_INT);
         $stmt->bindParam(":idDiag1Seg", $datos["idDiag1Seg"], PDO::PARAM_INT);
         $stmt->bindParam(":idDiag2Seg", $datos["idDiag2Seg"], PDO::PARAM_INT);
+        $stmt->bindParam(":idDiag3Seg", $datos["idDiag3Seg"], PDO::PARAM_INT);
+        $stmt->bindParam(":idDiag4Seg", $datos["idDiag4Seg"], PDO::PARAM_INT);
         $stmt->bindParam(":idFamAtSeg", $datos["idFamAtSeg"], PDO::PARAM_INT);
         $stmt->bindParam(":idDiag1SegFam", $datos["idDiag1SegFam"], PDO::PARAM_INT);
         $stmt->bindParam(":idDiag2SegFam", $datos["idDiag2SegFam"], PDO::PARAM_INT);
+        $stmt->bindParam(":idDiag3SegFam", $datos["idDiag3SegFam"], PDO::PARAM_INT);
+        $stmt->bindParam(":idDiag4SegFam", $datos["idDiag4SegFam"], PDO::PARAM_INT);
         $stmt->bindParam(":fRegistrSeg", $datos["fRegistrSeg"], PDO::PARAM_STR);
         $stmt->bindParam(":comunFamSeg", $datos["comunFamSeg"], PDO::PARAM_STR);
         $stmt->bindParam(":obsSeg", $datos["obsSeg"], PDO::PARAM_STR);
@@ -244,7 +231,7 @@ class SeguimientosModelo
     }
     static public function mdlEditarSeguimiento($datos)
     {
-        $stmt = Conexion::conectar()->prepare("CALL EDITAR_SEGUIMIENTO(:idSeguimiento,:fRegistrSeg,:idAtencionPac,:idProfesional,:idTipoSeguimiento,:idMotSeguimiento,:idDiag1Seg,:idDiag2Seg,:comunFamSeg,:idFamAtSeg,:idDiag1SegFam,:idDiag2SegFam,:obsSeg)");
+        $stmt = Conexion::conectar()->prepare("CALL EDITAR_SEGUIMIENTO(:idSeguimiento,:fRegistrSeg,:idAtencionPac,:idProfesional,:idTipoSeguimiento,:idMotSeguimiento,:idDiag1Seg,:idDiag2Seg,:idDiag3Seg,:idDiag4Seg,:comunFamSeg,:idFamAtSeg,:idDiag1SegFam,:idDiag2SegFam,:idDiag3SegFam,:idDiag4SegFam,:obsSeg)");
 
         $stmt->bindParam(":idSeguimiento", $datos["idSeguimiento"], PDO::PARAM_INT);
         $stmt->bindParam(":idAtencionPac", $datos["idAtencionPac"], PDO::PARAM_INT);
@@ -253,9 +240,16 @@ class SeguimientosModelo
         $stmt->bindParam(":idMotSeguimiento", $datos["idMotSeguimiento"], PDO::PARAM_INT);
         $stmt->bindParam(":idDiag1Seg", $datos["idDiag1Seg"], PDO::PARAM_INT);
         $stmt->bindParam(":idDiag2Seg", $datos["idDiag2Seg"], PDO::PARAM_INT);
+        $stmt->bindParam(":idDiag3Seg", $datos["idDiag3Seg"], PDO::PARAM_INT);
+        $stmt->bindParam(":idDiag4Seg", $datos["idDiag4Seg"], PDO::PARAM_INT);
+
+
         $stmt->bindParam(":idFamAtSeg", $datos["idFamAtSeg"], PDO::PARAM_INT);
         $stmt->bindParam(":idDiag1SegFam", $datos["idDiag1SegFam"], PDO::PARAM_INT);
         $stmt->bindParam(":idDiag2SegFam", $datos["idDiag2SegFam"], PDO::PARAM_INT);
+        $stmt->bindParam(":idDiag3SegFam", $datos["idDiag3SegFam"], PDO::PARAM_INT);
+        $stmt->bindParam(":idDiag4SegFam", $datos["idDiag4SegFam"], PDO::PARAM_INT);
+
         $stmt->bindParam(":fRegistrSeg", $datos["fRegistrSeg"], PDO::PARAM_STR);
         $stmt->bindParam(":comunFamSeg", $datos["comunFamSeg"], PDO::PARAM_STR);
         $stmt->bindParam(":obsSeg", $datos["obsSeg"], PDO::PARAM_STR);

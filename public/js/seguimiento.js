@@ -277,11 +277,35 @@ $("#edtSegPac").select2(
                 $("#seleccionActual21").remove();
                 $("#seleccionActual3").remove();
                 $("#seleccionActual31").remove();
+
+
+                $("#seleccionActual27").remove();
+                $("#seleccionActual272").remove();
+
+                $("#seleccionActual28").remove();
+                $("#seleccionActual282").remove();
+
+                $("#seleccionActual40").remove();
+                $("#seleccionActual401").remove();
+
+                $("#seleccionActual41").remove();
+                $("#seleccionActual411").remove();
+
+
+
                 $("#idFamAnt").val("0");
                 $("#edtSegDf11").val("0");
                 $("#edtSegDf11").html("Seleccione Diagnóstico");
                 $("#edtSegDf21").val("0");
-                $("#edtSegDf21").html("Seleccione Actividad (Opcional)");
+                $("#edtSegDf21").html("Seleccione Diagnóstico o Actividad (Opcional)");
+
+
+                $("#edtSegDf31").val("0");
+                $("#edtSegDf31").html("Seleccione Diagnóstico o Actividad (Opcional)");
+
+                $("#edtSegDf41").val("0");
+                $("#edtSegDf41").html("Seleccione Diagnóstico o Actividad (Opcional)");
+
                 return {
                     results: response,
                 };
@@ -374,9 +398,25 @@ $(".edtSegDp1").select2(
                 $("#seleccionActual26").addClass("d-none");
                 $("#seleccionActual262").addClass("d-none");
 
-                $(".edtSegDp2").empty().trigger('change');
-                $("#edtSegDp2").val("0");
-                $("#edtSegDp2").html("Seleccione Actividad (Opcional)");
+                $("#seleccionActual30").addClass("d-none");
+                $("#seleccionActual302").addClass("d-none");
+
+                $("#seleccionActual312").addClass("d-none");
+                $("#seleccionActual3121").addClass("d-none");
+
+                // $(".edtSegDp2").empty().trigger('change');
+                // $(".edtSegDp3").empty().trigger('change');
+                // $(".edtSegDp4").empty().trigger('change');
+
+                $("#edtSegDp21").val("0");
+                $("#edtSegDp21").html("Seleccione Diagnóstico o Actividad (Opcional)");
+
+                $("#edtSegDp31").val("0");
+                $("#edtSegDp31").html("Seleccione Diagnóstico o Actividad (Opcional)");
+
+                $("#edtSegDp41").val("0");
+                $("#edtSegDp41").html("Seleccione Diagnóstico o Actividad (Opcional)");
+
                 return {
                     results: response,
                 };
@@ -431,6 +471,194 @@ $(".rgSegDp2").select2(
     }
 );
 
+// Busqueda de tercer diagnostico
+$(".rgSegDp3").select2(
+    {
+        maximumInputLength: "12",
+        minimumInputLength: "2",
+        language: {
+
+            noResults: function () {
+
+                return "No hay resultado";
+            },
+            searching: function () {
+
+                return "Buscando Diagnóstico Principal ...";
+            },
+            inputTooShort: function () {
+                return "Ingrese 2 o más caracteres";
+            },
+            inputTooLong: function () {
+                return "Ingrese máximo 12 caracteres";
+            }
+        },
+        scrollAfterSelect: true,
+        placeholder: 'Ingrese CIE 10 o Descripción del Dx',
+        ajax: {
+            url: "public/views/src/ajaxDiagnosticos.php",
+            type: "post",
+            dataType: "json",
+            delay: 200,
+            data: function (params) {
+                return {
+                    searchTerm3: params.term,
+                    excluido: $("#rgSegDp1").val(),
+                    excluido2: $("#rgSegDp2").val(),
+
+                };
+            },
+            processResults: function (response) {
+                return {
+                    results: response,
+                };
+            },
+            cache: true,
+        },
+    }
+);
+
+$(".rgSegDf3").select2(
+    {
+        maximumInputLength: "12",
+        minimumInputLength: "2",
+        language: {
+
+            noResults: function () {
+
+                return "No hay resultado";
+            },
+            searching: function () {
+
+                return "Buscando Diagnóstico Principal ...";
+            },
+            inputTooShort: function () {
+                return "Ingrese 2 o más caracteres";
+            },
+            inputTooLong: function () {
+                return "Ingrese máximo 12 caracteres";
+            }
+        },
+        scrollAfterSelect: true,
+        placeholder: 'Ingrese CIE 10 o Descripción del Dx',
+        ajax: {
+            url: "public/views/src/ajaxDiagnosticos.php",
+            type: "post",
+            dataType: "json",
+            delay: 200,
+            data: function (params) {
+                return {
+                    searchTerm3: params.term,
+                    excluido: $("#rgSegDf1").val(),
+                    excluido2: $("#rgSegDf2").val(),
+
+                };
+            },
+            processResults: function (response) {
+                return {
+                    results: response,
+                };
+            },
+            cache: true,
+        },
+    }
+);
+// Busqueda de tercer diagnostico
+
+// Busqueda de cuarto diagnostico
+$(".rgSegDp4").select2(
+    {
+        maximumInputLength: "12",
+        minimumInputLength: "2",
+        language: {
+
+            noResults: function () {
+
+                return "No hay resultado";
+            },
+            searching: function () {
+
+                return "Buscando Diagnóstico Principal ...";
+            },
+            inputTooShort: function () {
+                return "Ingrese 2 o más caracteres";
+            },
+            inputTooLong: function () {
+                return "Ingrese máximo 12 caracteres";
+            }
+        },
+        scrollAfterSelect: true,
+        placeholder: 'Ingrese CIE 10 o Descripción del Dx',
+        ajax: {
+            url: "public/views/src/ajaxDiagnosticos.php",
+            type: "post",
+            dataType: "json",
+            delay: 200,
+            data: function (params) {
+                return {
+                    searchTerm4: params.term,
+                    excluido: $("#rgSegDp1").val(),
+                    excluido2: $("#rgSegDp2").val(),
+                    excluido3: $("#rgSegDp3").val(),
+                };
+            },
+            processResults: function (response) {
+                return {
+                    results: response,
+                };
+            },
+            cache: true,
+        },
+    }
+);
+
+$(".rgSegDf4").select2(
+    {
+        maximumInputLength: "12",
+        minimumInputLength: "2",
+        language: {
+
+            noResults: function () {
+
+                return "No hay resultado";
+            },
+            searching: function () {
+
+                return "Buscando Diagnóstico Principal ...";
+            },
+            inputTooShort: function () {
+                return "Ingrese 2 o más caracteres";
+            },
+            inputTooLong: function () {
+                return "Ingrese máximo 12 caracteres";
+            }
+        },
+        scrollAfterSelect: true,
+        placeholder: 'Ingrese CIE 10 o Descripción del Dx',
+        ajax: {
+            url: "public/views/src/ajaxDiagnosticos.php",
+            type: "post",
+            dataType: "json",
+            delay: 200,
+            data: function (params) {
+                return {
+                    searchTerm4: params.term,
+                    excluido: $("#rgSegDf1").val(),
+                    excluido2: $("#rgSegDf2").val(),
+                    excluido3: $("#rgSegDf3").val(),
+                };
+            },
+            processResults: function (response) {
+                return {
+                    results: response,
+                };
+            },
+            cache: true,
+        },
+    }
+);
+// Busqueda de cuarto diagnostico
+
 $(".edtSegDp2").select2(
     {
         maximumInputLength: "12",
@@ -468,6 +696,21 @@ $(".edtSegDp2").select2(
             processResults: function (response) {
                 $("#seleccionActual26").addClass("d-none");
                 $("#seleccionActual262").addClass("d-none");
+
+                $("#seleccionActual30").addClass("d-none");
+                $("#seleccionActual302").addClass("d-none");
+
+                $("#seleccionActual312").addClass("d-none");
+                $("#seleccionActual3121").addClass("d-none");
+
+                // $(".edtSegDp3").empty().trigger('change');
+                // $(".edtSegDp4").empty().trigger('change');
+
+                $("#edtSegDp31").val("0");
+                $("#edtSegDp31").html("Seleccione Diagnóstico o Actividad (Opcional)");
+
+                $("#edtSegDp41").val("0");
+                $("#edtSegDp41").html("Seleccione Diagnóstico o Actividad (Opcional)");
                 return {
                     results: response,
                 };
@@ -476,6 +719,118 @@ $(".edtSegDp2").select2(
         },
     }
 );
+
+
+$(".edtSegDp3").select2(
+    {
+        maximumInputLength: "12",
+        minimumInputLength: "2",
+        language: {
+
+            noResults: function () {
+
+                return "No hay resultado";
+            },
+            searching: function () {
+
+                return "Buscando Diagnóstico Opcional ...";
+            },
+            inputTooShort: function () {
+                return "Ingrese 2 o más caracteres";
+            },
+            inputTooLong: function () {
+                return "Ingrese máximo 12 caracteres";
+            }
+        },
+        scrollAfterSelect: true,
+        placeholder: 'Ingrese CIE 10 o Descripción del Dx',
+        ajax: {
+            url: "public/views/src/ajaxDiagnosticos.php",
+            type: "post",
+            dataType: "json",
+            delay: 200,
+            data: function (params) {
+                return {
+                    searchTerm3: params.term,
+                    excluido: $("#edtSegDp1").val(),
+                    excluido2: $("#edtSegDp2").val(),
+                };
+            },
+            processResults: function (response) {
+
+                $("#seleccionActual30").addClass("d-none");
+                $("#seleccionActual302").addClass("d-none");
+
+                $("#seleccionActual312").addClass("d-none");
+                $("#seleccionActual3121").addClass("d-none");
+
+                // $(".edtSegDp4").empty().trigger('change');
+
+                $("#edtSegDp41").val("0");
+                $("#edtSegDp41").html("Seleccione Diagnóstico o Actividad (Opcional)");
+
+                return {
+                    results: response,
+                };
+            },
+            cache: true,
+        },
+    }
+);
+
+
+$(".edtSegDp4").select2(
+    {
+        maximumInputLength: "12",
+        minimumInputLength: "2",
+        language: {
+
+            noResults: function () {
+
+                return "No hay resultado";
+            },
+            searching: function () {
+
+                return "Buscando Diagnóstico Opcional ...";
+            },
+            inputTooShort: function () {
+                return "Ingrese 2 o más caracteres";
+            },
+            inputTooLong: function () {
+                return "Ingrese máximo 12 caracteres";
+            }
+        },
+        scrollAfterSelect: true,
+        placeholder: 'Ingrese CIE 10 o Descripción del Dx',
+        ajax: {
+            url: "public/views/src/ajaxDiagnosticos.php",
+            type: "post",
+            dataType: "json",
+            delay: 200,
+            data: function (params) {
+                return {
+                    searchTerm4: params.term,
+                    excluido: $("#edtSegDp1").val(),
+                    excluido2: $("#edtSegDp2").val(),
+                    excluido3: $("#edtSegDp3").val(),
+                };
+            },
+            processResults: function (response) {
+
+                $("#seleccionActual312").addClass("d-none");
+                $("#seleccionActual3121").addClass("d-none");
+
+                return {
+                    results: response,
+                };
+            },
+            cache: true,
+        },
+    }
+);
+
+
+
 $(".rgSegDf1").select2(
     {
         maximumInputLength: "12",
@@ -558,9 +913,24 @@ $(".edtSegDf1").select2(
                 $("#seleccionActual28").addClass("d-none");
                 $("#seleccionActual282").addClass("d-none");
 
+
+                $("#seleccionActual40").addClass("d-none");
+                $("#seleccionActual401").addClass("d-none");
+
+                $("#seleccionActual41").addClass("d-none");
+                $("#seleccionActual411").addClass("d-none");
+
                 $(".edtSegDf2").empty().trigger('change');
                 $("#edtSegDf2").val("0");
-                $("#edtSegDf2").html("Seleccione Actividad (Opcional)");
+                $("#edtSegDf2").html("Seleccione Diagnóstico o Actividad (Opcional)");
+
+                $(".edtSegDf3").empty().trigger('change');
+                $("#edtSegDf3").val("0");
+                $("#edtSegDf3").html("Seleccione Diagnóstico o Actividad (Opcional)");
+
+                $(".edtSegDf4").empty().trigger('change');
+                $("#edtSegDf4").val("0");
+                $("#edtSegDf4").html("Seleccione Diagnóstico o Actividad (Opcional)");
                 return {
                     results: response,
                 };
@@ -648,8 +1018,28 @@ $(".edtSegDf2").select2(
                 };
             },
             processResults: function (response) {
+
                 $("#seleccionActual28").addClass("d-none");
                 $("#seleccionActual282").addClass("d-none");
+
+
+                $("#seleccionActual40").addClass("d-none");
+                $("#seleccionActual401").addClass("d-none");
+
+                $("#seleccionActual41").addClass("d-none");
+                $("#seleccionActual411").addClass("d-none");
+
+                $(".edtSegDf2").empty().trigger('change');
+                $("#edtSegDf2").val("0");
+                $("#edtSegDf2").html("Seleccione Diagnóstico o Actividad (Opcional)");
+
+                $(".edtSegDf3").empty().trigger('change');
+                $("#edtSegDf3").val("0");
+                $("#edtSegDf3").html("Seleccione Diagnóstico o Actividad (Opcional)");
+
+                $(".edtSegDf4").empty().trigger('change');
+                $("#edtSegDf4").val("0");
+                $("#edtSegDf4").html("Seleccione Diagnóstico o Actividad (Opcional)");
                 return {
                     results: response,
                 };
@@ -658,6 +1048,126 @@ $(".edtSegDf2").select2(
         },
     }
 );
+
+
+
+$(".edtSegDf3").select2(
+    {
+        maximumInputLength: "12",
+        minimumInputLength: "2",
+        language: {
+
+            noResults: function () {
+
+                return "No hay resultado";
+            },
+            searching: function () {
+
+                return "Buscando Diagnóstico Opcional ...";
+            },
+            inputTooShort: function () {
+                return "Ingrese 2 o más caracteres";
+            },
+            inputTooLong: function () {
+                return "Ingrese máximo 12 caracteres";
+            }
+        },
+        scrollAfterSelect: true,
+        placeholder: 'Ingrese CIE 10 o Descripción del Dx',
+        ajax: {
+            url: "public/views/src/ajaxDiagnosticos.php",
+            type: "post",
+            dataType: "json",
+            delay: 200,
+            data: function (params) {
+                return {
+                    searchTerm3: params.term,
+                    excluido: $("#edtSegDf1").val(),
+                    excluido2: $("#edtSegDf2").val(),
+
+                };
+            },
+            processResults: function (response) {
+
+
+                $("#seleccionActual40").addClass("d-none");
+                $("#seleccionActual401").addClass("d-none");
+
+                $("#seleccionActual41").addClass("d-none");
+                $("#seleccionActual411").addClass("d-none");
+
+                $(".edtSegDf3").empty().trigger('change');
+                $("#edtSegDf3").val("0");
+                $("#edtSegDf3").html("Seleccione Diagnóstico o Actividad (Opcional)");
+
+                $(".edtSegDf4").empty().trigger('change');
+                $("#edtSegDf4").val("0");
+                $("#edtSegDf4").html("Seleccione Diagnóstico o Actividad (Opcional)");
+                return {
+                    results: response,
+                };
+            },
+            cache: true,
+        },
+    }
+);
+
+
+$(".edtSegDf4").select2(
+    {
+        maximumInputLength: "12",
+        minimumInputLength: "2",
+        language: {
+
+            noResults: function () {
+
+                return "No hay resultado";
+            },
+            searching: function () {
+
+                return "Buscando Diagnóstico Opcional ...";
+            },
+            inputTooShort: function () {
+                return "Ingrese 2 o más caracteres";
+            },
+            inputTooLong: function () {
+                return "Ingrese máximo 12 caracteres";
+            }
+        },
+        scrollAfterSelect: true,
+        placeholder: 'Ingrese CIE 10 o Descripción del Dx',
+        ajax: {
+            url: "public/views/src/ajaxDiagnosticos.php",
+            type: "post",
+            dataType: "json",
+            delay: 200,
+            data: function (params) {
+                return {
+                    searchTerm4: params.term,
+                    excluido: $("#edtSegDf1").val(),
+                    excluido2: $("#edtSegDf2").val(),
+                    excluido3: $("#edtSegDf3").val(),
+
+
+                };
+            },
+            processResults: function (response) {
+
+                $("#seleccionActual41").addClass("d-none");
+                $("#seleccionActual411").addClass("d-none");
+
+                $(".edtSegDf4").empty().trigger('change');
+                $("#edtSegDf4").val("0");
+                $("#edtSegDf4").html("Seleccione Diagnóstico o Actividad (Opcional)");
+                return {
+                    results: response,
+                };
+            },
+            cache: true,
+        },
+    }
+);
+
 $("#rgSegFec").inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' });
 $('#rgSegFec').datepicker({
     'format': 'dd/mm/yyyy',
@@ -720,7 +1230,7 @@ $("#edtSegTip").on("change", function () {
 // COMUNICA FAMILIAR
 $("#comSi").click(function () {
     if ($("#comSi").is(":checked")) {
-        let temEtiqueta = "<option value='0'>Seleccione</option>";
+        let temEtiqueta = "<option value='0'>Seleccione Dx o Actividad</option>";
 
         $("#comFami").val("SI");
         $("#block1").removeClass("d-none");
@@ -730,9 +1240,15 @@ $("#comSi").click(function () {
         $("#rgSegDf2").empty().trigger('change')
         $("#rgSegDf2")[0].selectedIndex = 0;
 
+        $("#rgSegDf3").empty().trigger('change')
+        $("#rgSegDf3")[0].selectedIndex = 0;
+        $("#rgSegDf4").empty().trigger('change')
+        $("#rgSegDf4")[0].selectedIndex = 0;
 
         $("#rgSegDf1").html(temEtiqueta);
         $("#rgSegDf2").html(temEtiqueta);
+        $("#rgSegDf3").html(temEtiqueta);
+        $("#rgSegDf4").html(temEtiqueta);
 
     } else {
         $("#comFami").val("NO");
@@ -740,17 +1256,31 @@ $("#comSi").click(function () {
 });
 $("#comNo").click(function () {
     if ($("#comNo").is(":checked")) {
-        let temEtiqueta = "<option value='0'>Seleccione</option>";
+        let temEtiqueta = "<option value='0'>Seleccione Dx o Actividad</option>";
 
         $("#comFami").val("NO");
         $("#block1").addClass("d-none");
-        $("#rgSegDf1").empty().trigger('change')
-        $("#rgSegDf2").empty().trigger('change')
+
         $("#rgSegFam")[0].selectedIndex = 0;
+
+        $("#rgSegDf1").empty().trigger('change')
         $("#rgSegDf1")[0].selectedIndex = 0;
-        $("#rgSegDf2")[0].selectedIndex = 0;
         $("#rgSegDf1").html(temEtiqueta);
+
+        $("#rgSegDf2").empty().trigger('change')
+        $("#rgSegDf2")[0].selectedIndex = 0;
         $("#rgSegDf2").html(temEtiqueta);
+
+        $("#rgSegDf3").empty().trigger('change')
+        $("#rgSegDf3")[0].selectedIndex = 0;
+        $("#rgSegDf3").html(temEtiqueta);
+
+        $("#rgSegDf4").empty().trigger('change')
+        $("#rgSegDf4")[0].selectedIndex = 0;
+        $("#rgSegDf4").html(temEtiqueta);
+
+
+
     } else {
         $("#comFami").val("SI");
     }
@@ -763,21 +1293,55 @@ $("#comSi1").click(function () {
         $("#edtSegFam")[0].selectedIndex = 0;
         $("#edtSegDf1")[0].selectedIndex = 0;
         $("#edtSegDf2")[0].selectedIndex = 0;
+        $("#edtSegDf3")[0].selectedIndex = 0;
+        $("#edtSegDf4")[0].selectedIndex = 0;
     } else {
         $("#comFami1").val("NO");
     }
 });
 $("#comNo1").click(function () {
     if ($("#comNo1").is(":checked")) {
+        let temEtiqueta = "<option value='0'>Seleccione Dx o Actividad</option>";
         $("#comFami1").val("NO");
         $("#block11").addClass("d-none");
-        $("#edtSegDf11").val("0");
-        $("#edtSegDf11").html("Seleccione Diagnóstico");
-        $("#edtSegDf21").val("0");
-        $("#edtSegDf21").html("Seleccione Actividad (Opcional)");
+
         $("#edtSegFam")[0].selectedIndex = 0;
+
+        $("#edtSegDf1").empty().trigger('change')
         $("#edtSegDf1")[0].selectedIndex = 0;
+        $("#edtSegDf1").html(temEtiqueta);
+
+        $("#edtSegDf2").empty().trigger('change')
         $("#edtSegDf2")[0].selectedIndex = 0;
+        $("#edtSegDf2").html(temEtiqueta);
+
+        $("#edtSegDf3").empty().trigger('change')
+        $("#edtSegDf3")[0].selectedIndex = 0;
+        $("#edtSegDf3").html(temEtiqueta);
+
+        $("#edtSegDf4").empty().trigger('change')
+        $("#edtSegDf4")[0].selectedIndex = 0;
+        $("#edtSegDf4").html(temEtiqueta);
+
+
+        $("#seleccionActual3").addClass("d-none");
+        $("#seleccionActual31").addClass("d-none");
+
+
+        $("#seleccionActual27").addClass("d-none");
+        $("#seleccionActual272").addClass("d-none");
+
+        $("#seleccionActual28").addClass("d-none");
+        $("#seleccionActual282").addClass("d-none");
+
+
+        $("#seleccionActual40").addClass("d-none");
+        $("#seleccionActual401").addClass("d-none");
+
+        $("#seleccionActual41").addClass("d-none");
+        $("#seleccionActual411").addClass("d-none");
+
+
     } else {
         $("#comFami").val("SI");
     }
@@ -1124,6 +1688,12 @@ $(".datatableSeguimiento tbody").on("click", ".btnEditarSeguimiento", function (
     $("#seleccionActual26").addClass("d-none");
     $("#seleccionActual27").addClass("d-none");
     $("#seleccionActual28").addClass("d-none");
+    $("#seleccionActual30").addClass("d-none");
+    $("#seleccionActual312").addClass("d-none");
+    $("#seleccionActual40").addClass("d-none"); 
+    $("#seleccionActual41").addClass("d-none");
+
+
 
     // Ocultar etiquetas en el caso de no encontrar valores alternativos
 
@@ -1149,21 +1719,6 @@ $(".datatableSeguimiento tbody").on("click", ".btnEditarSeguimiento", function (
                     $("#edtSegTip1").html(respuesta["detaTipSeguimiento"]);
                     $("#edtSegMot1").val(respuesta["idMotSeguimiento"]);
                     $("#edtSegMot1").html(respuesta["detaMotivoSef"]);
-
-                    // let base = respuesta["detaD1"];
-                    // let recorte = base.substring(0, 60);
-
-                    // $("#seleccionActual252").html(respuesta["cieP1"] + " || " + recorte);
-
-                    // if (respuesta["idDiag2Seg"] != 0) {
-                    //     let base2 = respuesta["detD2"];
-                    //     let recorte2 = base2.substring(0, 60);
-                    //     $("#seleccionActual262").html(respuesta["cieP2"] + " || " + recorte2);
-                    // }
-
-
-                    // $("#seleccionActual272").html(respuesta["cieDF1"] + " || " + respuesta["detDF1"]);
-                    // $("#seleccionActual282").html(respuesta["detDF2"] + " || " + respuesta["detDF2"]);
 
                     $("#seleccionActual21").html(respuesta["cuentaAtencion"] + " - " + respuesta["tipdocAtencion"] + "-" + respuesta["nrodocAtencion"] + " - " + respuesta["nombAtencion"] + " " + respuesta["apPaternoAtencion"] + " " + respuesta["apMaternoAtencion"]);
 
@@ -1210,31 +1765,30 @@ $(".datatableSeguimiento tbody").on("click", ".btnEditarSeguimiento", function (
 
                         $("#seleccionActual262").html(respuesta["cieP2"] + " || " + recorte);
                     }
-                    else {
-                        if (respuesta["idDiag1Seg"] != 0) {
-                            var existe = respuesta["idDiag1Seg"];
-                            $("#edtSegDp2")[0].selectedIndex = 0;
-                            if (existe > 0) {
-                                $.ajax({
-                                    url: "public/views/src/ajaxDiagnosticos.php",
-                                    method: "POST",
-                                    dataType: "html",
-                                    data: { existe: existe }
-                                }).done(function (respuesta) {
-                                    $("#edtSegDp2").html(respuesta);
-                                }).fail(function () {
-                                    console.log("error");
-                                });
-                            }
-                            else {
-                                var errorhtml = "<option value='0'>No hay actividades existentes</option>";
-                                $("#edtSegDp2").html(errorhtml);
-                            }
-                        }
-                        else {
-                            $("#edtSegDp21").val("0");
-                            $("#edtSegDp21").html("Seleccione Actividad (Opcional)");
-                        }
+
+
+                    if (respuesta["idDiag3Seg"] != 0) {
+                        $("#seleccionActual30").removeClass("d-none");
+
+                        $("#edtSegDp31").val(respuesta["idDiag3Seg"]);
+                        $("#edtSegDp31").html(respuesta["cieP3"] + " - " + respuesta["detD3"]);
+
+                        let base = respuesta["detD3"];
+                        let recorte = base.substring(0, 60);
+
+                        $("#seleccionActual302").html(respuesta["cieP3"] + " || " + recorte);
+                    }
+
+                    if (respuesta["idDiag4Seg"] != 0) {
+                        $("#seleccionActual312").removeClass("d-none");
+
+                        $("#edtSegDp41").val(respuesta["idDiag4Seg"]);
+                        $("#edtSegDp41").html(respuesta["cieP4"] + " - " + respuesta["detD4"]);
+
+                        let base = respuesta["detD4"];
+                        let recorte = base.substring(0, 55);
+
+                        $("#seleccionActual3121").html(respuesta["cieP4"] + " || " + recorte);
                     }
 
                     if (respuesta["idDiag1SegFam"] != 0) {
@@ -1262,32 +1816,29 @@ $(".datatableSeguimiento tbody").on("click", ".btnEditarSeguimiento", function (
 
                         $("#seleccionActual282").html(respuesta["cieDF2"] + " || " + recorte);
                     }
-                    else {
-                        if (respuesta["idDiag1SegFam"] != 0) {
-                            var existe = respuesta["idDiag1SegFam"];
-                            $("#edtSegDf2")[0].selectedIndex = 0;
-                            if (existe > 0) {
-                                $.ajax({
-                                    url: "public/views/src/ajaxDiagnosticos.php",
-                                    method: "POST",
-                                    dataType: "html",
-                                    data: { existe: existe }
-                                }).done(function (respuesta) {
-                                    $("#edtSegDf2").html(respuesta);
-                                }).fail(function () {
-                                    console.log("error");
-                                });
-                            }
-                            else {
-                                var errorhtml = "<option value='0'>No hay actividades existentes</option>";
-                                $("#edtSegDf2").html(errorhtml);
-                            }
-                        }
-                        else {
-                            $("#edtSegDf21").val("0");
-                            $("#edtSegDf21").html("Seleccione Actividad (Opcional)");
-                        }
+
+                    if (respuesta["idDiag3SegFam"] != 0) {
+                        $("#seleccionActual40").removeClass("d-none");
+
+                        $("#edtSegDf31").val(respuesta["idDiag3SegFam"]);
+                        $("#edtSegDf31").html(respuesta["cieDF3"] + " - " + respuesta["detDF3"]);
+                        let base = respuesta["detDF3"];
+                        let recorte = base.substring(0, 60);
+
+                        $("#seleccionActual401").html(respuesta["cieDF3"] + " || " + recorte);
                     }
+
+                    if (respuesta["idDiag4SegFam"] != 0) {
+                        $("#seleccionActual41").removeClass("d-none");
+
+                        $("#edtSegDf41").val(respuesta["idDiag4SegFam"]);
+                        $("#edtSegDf41").html(respuesta["cieDF4"] + " - " + respuesta["detDF4"]);
+                        let base = respuesta["detDF4"];
+                        let recorte = base.substring(0, 60);
+
+                        $("#seleccionActual411").html(respuesta["cieDF4"] + " || " + recorte);
+                    }
+                    
                     // Condiciones para diagnosticos
                     $("#idFamAnt").val(respuesta["idFamAtSeg"]);
                     if (respuesta["idFamAtSeg"] != 0) {

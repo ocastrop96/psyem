@@ -212,10 +212,36 @@ if ($_SESSION["loginPerfil"] == 1) {
           <div class="row">
             <div class="col-12">
               <div class="form-group">
-                <label for="rgSegDp2">Actividad (OPCIONAL): &nbsp;</label>
+                <label for="rgSegDp2">Diagnóstico 2:  &nbsp;</label>
                 <i class="fas fa-stethoscope"></i>
                 <div class="input-group">
                   <select class="form-control rgSegDp2" id="rgSegDp2" name="rgSegDp2" style="width: 100%;">
+                    <option value="0">Seleccione Diagnóstico 2</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <div class="form-group">
+                <label for="rgSegDp3">Diagnóstico 3: &nbsp;</label>
+                <i class="fas fa-stethoscope"></i>
+                <div class="input-group">
+                  <select class="form-control rgSegDp3" id="rgSegDp3" name="rgSegDp3" style="width: 100%;">
+                    <option value="0">Seleccione Diagnóstico 3</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <div class="form-group">
+                <label for="rgSegDp4">Actividad (OPCIONAL): &nbsp;</label>
+                <i class="fas fa-stethoscope"></i>
+                <div class="input-group">
+                  <select class="form-control rgSegDp4" id="rgSegDp4" name="rgSegDp4" style="width: 100%;">
                     <option value="0">Seleccione Actividad (Opcional)</option>
                   </select>
                 </div>
@@ -279,10 +305,36 @@ if ($_SESSION["loginPerfil"] == 1) {
               <div class="row">
                 <div class="col-12">
                   <div class="form-group">
-                    <label for="rgSegDf2">Actividad (OPCIONAL): &nbsp;</label>
+                    <label for="rgSegDf2">Diagnóstico 2: &nbsp;</label>
                     <i class="fas fa-stethoscope"></i>
                     <div class="input-group">
                       <select class="form-control rgSegDf2" id="rgSegDf2" name="rgSegDf2" style="width: 100%;">
+                        <option value="0">Seleccione Diagnóstico 2</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <div class="form-group">
+                    <label for="rgSegDf3">Diagnóstico 3: &nbsp;</label>
+                    <i class="fas fa-stethoscope"></i>
+                    <div class="input-group">
+                      <select class="form-control rgSegDf3" id="rgSegDf3" name="rgSegDf3" style="width: 100%;">
+                        <option value="0">Seleccione Diagnóstico 3</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <div class="form-group">
+                    <label for="rgSegDf4">Actividad (OPCIONAL): &nbsp;</label>
+                    <i class="fas fa-stethoscope"></i>
+                    <div class="input-group">
+                      <select class="form-control rgSegDf4" id="rgSegDf4" name="rgSegDf4" style="width: 100%;">
                         <option value="0">Seleccione Actividad (Opcional)</option>
                       </select>
                     </div>
@@ -435,13 +487,43 @@ if ($_SESSION["loginPerfil"] == 1) {
           <div class="row">
             <div class="col-12">
               <div class="form-group">
-                <label for="edtSegDp2">Actividad (OPCIONAL): &nbsp;</label>
+                <label for="edtSegDp2">Diagnóstico 2:  &nbsp;</label>
                 <i class="fas fa-stethoscope"></i>
                 <span class="font-weight-bolder text-danger" id="seleccionActual26">ACTUAL : </span>
                 <span class="font-weight-bolder" id="seleccionActual262"></span>
                 <div class="input-group">
                   <select class="form-control edtSegDp2" id="edtSegDp2" name="edtSegDp2" style="width: 100%;">
                     <option id="edtSegDp21"></option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <div class="form-group">
+                <label for="edtSegDp3">Diagnóstico 3:  &nbsp;</label>
+                <i class="fas fa-stethoscope"></i>
+                <span class="font-weight-bolder text-danger" id="seleccionActual30">ACTUAL : </span>
+                <span class="font-weight-bolder" id="seleccionActual302"></span>
+                <div class="input-group">
+                  <select class="form-control edtSegDp3" id="edtSegDp3" name="edtSegDp3" style="width: 100%;">
+                    <option id="edtSegDp31"></option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <div class="form-group">
+                <label for="edtSegDp4">Actividad (OPCIONAL): &nbsp;</label>
+                <i class="fas fa-stethoscope"></i>
+                <span class="font-weight-bolder text-danger" id="seleccionActual312">ACTUAL : </span>
+                <span class="font-weight-bolder" id="seleccionActual3121"></span>
+                <div class="input-group">
+                  <select class="form-control edtSegDp4" id="edtSegDp4" name="edtSegDp4" style="width: 100%;">
+                    <option id="edtSegDp41"></option>
                   </select>
                 </div>
               </div>
@@ -517,18 +599,53 @@ if ($_SESSION["loginPerfil"] == 1) {
               <div class="row">
                 <div class="col-12">
                   <div class="form-group">
-                    <label for="edtSegDf2">Actividad (OPCIONAL): &nbsp;</label>
+                    <label for="edtSegDf2">Diagnóstico 2: &nbsp;</label>
                     <i class="fas fa-stethoscope"></i>
                     <span class="font-weight-bolder text-danger" id="seleccionActual28">ACTUAL : </span>
                     <span class="font-weight-bolder" id="seleccionActual282"></span>
                     <div class="input-group">
                       <select class="form-control edtSegDf2" id="edtSegDf2" name="edtSegDf2" style="width: 100%;">
-                        <option id="edtSegDf21">Seleccione Actividad (Opcional)</option>
+                        <option id="edtSegDf21">Seleccione Diagnóstico o Actividad (Opcional)</option>
                       </select>
                     </div>
                   </div>
                 </div>
               </div>
+
+              <!-- NUEVOS CAMPOS AÑADIDOS PARA DX 3 Y 4 -->
+              <div class="row">
+                <div class="col-12">
+                  <div class="form-group">
+                    <label for="edtSegDf3">Diagnóstico 3: &nbsp;</label>
+                    <i class="fas fa-stethoscope"></i>
+                    <span class="font-weight-bolder text-danger" id="seleccionActual40">ACTUAL : </span>
+                    <span class="font-weight-bolder" id="seleccionActual401"></span>
+                    <div class="input-group">
+                      <select class="form-control edtSegDf3" id="edtSegDf3" name="edtSegDf3" style="width: 100%;">
+                        <option id="edtSegDf31">Seleccione Diagnóstico o Actividad (Opcional)</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-12">
+                  <div class="form-group">
+                    <label for="edtSegDf4">Actividad (OPCIONAL): &nbsp;</label>
+                    <i class="fas fa-stethoscope"></i>
+                    <span class="font-weight-bolder text-danger" id="seleccionActual41">ACTUAL : </span>
+                    <span class="font-weight-bolder" id="seleccionActual411"></span>
+                    <div class="input-group">
+                      <select class="form-control edtSegDf4" id="edtSegDf4" name="edtSegDf4" style="width: 100%;">
+                        <option id="edtSegDf41">Seleccione Diagnóstico o Actividad (Opcional)</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
             </div>
           </div>
           <div class="row">
