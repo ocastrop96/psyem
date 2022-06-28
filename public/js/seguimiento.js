@@ -314,7 +314,6 @@ $("#edtSegPac").select2(
         },
     }
 );
-
 $(".rgSegDp1").select2(
     {
         maximumInputLength: "12",
@@ -425,8 +424,6 @@ $(".edtSegDp1").select2(
         },
     }
 );
-
-
 $(".rgSegDp2").select2(
     {
         maximumInputLength: "12",
@@ -470,7 +467,6 @@ $(".rgSegDp2").select2(
         },
     }
 );
-
 // Busqueda de tercer diagnostico
 $(".rgSegDp3").select2(
     {
@@ -611,7 +607,6 @@ $(".rgSegDp4").select2(
         },
     }
 );
-
 $(".rgSegDf4").select2(
     {
         maximumInputLength: "12",
@@ -658,7 +653,6 @@ $(".rgSegDf4").select2(
     }
 );
 // Busqueda de cuarto diagnostico
-
 $(".edtSegDp2").select2(
     {
         maximumInputLength: "12",
@@ -719,8 +713,6 @@ $(".edtSegDp2").select2(
         },
     }
 );
-
-
 $(".edtSegDp3").select2(
     {
         maximumInputLength: "12",
@@ -777,8 +769,6 @@ $(".edtSegDp3").select2(
         },
     }
 );
-
-
 $(".edtSegDp4").select2(
     {
         maximumInputLength: "12",
@@ -920,17 +910,17 @@ $(".edtSegDf1").select2(
                 $("#seleccionActual41").addClass("d-none");
                 $("#seleccionActual411").addClass("d-none");
 
-                $(".edtSegDf2").empty().trigger('change');
-                $("#edtSegDf2").val("0");
-                $("#edtSegDf2").html("Seleccione Diagnóstico o Actividad (Opcional)");
+                // $(".edtSegDf2").empty().trigger('change');
+                $("#edtSegDf21").val("0");
+                $("#edtSegDf21").html("Seleccione Diagnóstico o Actividad (Opcional)");
 
-                $(".edtSegDf3").empty().trigger('change');
-                $("#edtSegDf3").val("0");
-                $("#edtSegDf3").html("Seleccione Diagnóstico o Actividad (Opcional)");
+                // $(".edtSegDf3").empty().trigger('change');
+                $("#edtSegDf31").val("0");
+                $("#edtSegDf31").html("Seleccione Diagnóstico o Actividad (Opcional)");
 
-                $(".edtSegDf4").empty().trigger('change');
-                $("#edtSegDf4").val("0");
-                $("#edtSegDf4").html("Seleccione Diagnóstico o Actividad (Opcional)");
+                // $(".edtSegDf4").empty().trigger('change');
+                $("#edtSegDf41").val("0");
+                $("#edtSegDf41").html("Seleccione Diagnóstico o Actividad (Opcional)");
                 return {
                     results: response,
                 };
@@ -1029,17 +1019,13 @@ $(".edtSegDf2").select2(
                 $("#seleccionActual41").addClass("d-none");
                 $("#seleccionActual411").addClass("d-none");
 
-                $(".edtSegDf2").empty().trigger('change');
-                $("#edtSegDf2").val("0");
-                $("#edtSegDf2").html("Seleccione Diagnóstico o Actividad (Opcional)");
+                // $(".edtSegDf3").empty().trigger('change');
+                $("#edtSegDf31").val("0");
+                $("#edtSegDf31").html("Seleccione Diagnóstico o Actividad (Opcional)");
 
-                $(".edtSegDf3").empty().trigger('change');
-                $("#edtSegDf3").val("0");
-                $("#edtSegDf3").html("Seleccione Diagnóstico o Actividad (Opcional)");
-
-                $(".edtSegDf4").empty().trigger('change');
-                $("#edtSegDf4").val("0");
-                $("#edtSegDf4").html("Seleccione Diagnóstico o Actividad (Opcional)");
+                // $(".edtSegDf4").empty().trigger('change');
+                $("#edtSegDf41").val("0");
+                $("#edtSegDf41").html("Seleccione Diagnóstico o Actividad (Opcional)");
                 return {
                     results: response,
                 };
@@ -1096,13 +1082,13 @@ $(".edtSegDf3").select2(
                 $("#seleccionActual41").addClass("d-none");
                 $("#seleccionActual411").addClass("d-none");
 
-                $(".edtSegDf3").empty().trigger('change');
-                $("#edtSegDf3").val("0");
-                $("#edtSegDf3").html("Seleccione Diagnóstico o Actividad (Opcional)");
+                // $(".edtSegDf3").empty().trigger('change');
+                // $("#edtSegDf3").val("0");
+                // $("#edtSegDf3").html("Seleccione Diagnóstico o Actividad (Opcional)");
 
-                $(".edtSegDf4").empty().trigger('change');
-                $("#edtSegDf4").val("0");
-                $("#edtSegDf4").html("Seleccione Diagnóstico o Actividad (Opcional)");
+                // $(".edtSegDf4").empty().trigger('change');
+                $("#edtSegDf41").val("0");
+                $("#edtSegDf41").html("Seleccione Diagnóstico o Actividad (Opcional)");
                 return {
                     results: response,
                 };
@@ -1307,19 +1293,19 @@ $("#comNo1").click(function () {
 
         $("#edtSegFam")[0].selectedIndex = 0;
 
-        $("#edtSegDf1").empty().trigger('change')
+        // $("#edtSegDf1").empty().trigger('change')
         $("#edtSegDf1")[0].selectedIndex = 0;
         $("#edtSegDf1").html(temEtiqueta);
 
-        $("#edtSegDf2").empty().trigger('change')
+        // $("#edtSegDf2").empty().trigger('change')
         $("#edtSegDf2")[0].selectedIndex = 0;
         $("#edtSegDf2").html(temEtiqueta);
 
-        $("#edtSegDf3").empty().trigger('change')
+        // $("#edtSegDf3").empty().trigger('change')
         $("#edtSegDf3")[0].selectedIndex = 0;
         $("#edtSegDf3").html(temEtiqueta);
 
-        $("#edtSegDf4").empty().trigger('change')
+        // $("#edtSegDf4").empty().trigger('change')
         $("#edtSegDf4")[0].selectedIndex = 0;
         $("#edtSegDf4").html(temEtiqueta);
 
@@ -1838,7 +1824,7 @@ $(".datatableSeguimiento tbody").on("click", ".btnEditarSeguimiento", function (
 
                         $("#seleccionActual411").html(respuesta["cieDF4"] + " || " + recorte);
                     }
-                    
+
                     // Condiciones para diagnosticos
                     $("#idFamAnt").val(respuesta["idFamAtSeg"]);
                     if (respuesta["idFamAtSeg"] != 0) {

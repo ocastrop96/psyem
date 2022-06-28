@@ -213,7 +213,9 @@ class ReportesControlador
                     <td style='font-weight:bold; background-color:#ddd;'>EDAD</td>
                     <td style='font-weight:bold; background-color:#ddd;'>SEXO</td>	
 					<td style='font-weight:bold; background-color:#ddd;'>DIAG PAC</td>
-                    <td style='font-weight:bold; background-color:#ddd;'>ACT PAC</td> 
+                    <td style='font-weight:bold; background-color:#ddd;'>DIAG PAC 2</td> 
+                    <td style='font-weight:bold; background-color:#ddd;'>DIAG PAC 3</td> 
+                    <td style='font-weight:bold; background-color:#ddd;'>DIAG PAC 4</td> 
 					<td style='font-weight:bold; background-color:#ddd;'>COMUNICACION</td>
                     <td style='font-weight:bold; background-color:#ddd;'>DOC FAM</td>
 					<td style='font-weight:bold; background-color:#ddd;'>FAMILIAR</td>
@@ -221,7 +223,9 @@ class ReportesControlador
 					<td style='font-weight:bold; background-color:#ddd;'>EDAD</td>		
 					<td style='font-weight:bold; background-color:#ddd;'>SEXO</td>		
                     <td style='font-weight:bold; background-color:#ddd;'>DIAG FAM</td>
-                    <td style='font-weight:bold; background-color:#ddd;'>ACT FAM</td>	
+                    <td style='font-weight:bold; background-color:#ddd;'>DIAG FAM 2</td>
+                    <td style='font-weight:bold; background-color:#ddd;'>DIAG FAM 3</td>
+                    <td style='font-weight:bold; background-color:#ddd;'>DIAG FAM 4</td>
 					<td style='font-weight:bold; background-color:#ddd;'>PROFESIONAL</td>	
                     </tr>");
             foreach ($visitasReport as $row => $item) {
@@ -235,8 +239,12 @@ class ReportesControlador
                 <td style='padding:0.5em; border:1px solid #D6DBDF;'>" . $item["nombpaciente"] . "</td>
                 <td style='padding:0.5em; border:1px solid #D6DBDF;'>" . $item["edadPaciente"] . "</td>
                 <td style='padding:0.5em; border:1px solid #D6DBDF;'>" . $item["sexoPac"] . "</td>
+
                 <td style='padding:0.5em; border:1px solid #D6DBDF;'>" . $item["diagPac"] . "</td>
                 <td style='padding:0.5em; border:1px solid #D6DBDF;'>" . $item["actPac"] . "</td>
+                <td style='padding:0.5em; border:1px solid #D6DBDF;'>" . $item["actPac2"] . "</td>
+                <td style='padding:0.5em; border:1px solid #D6DBDF;'>" . $item["actPac3"] . "</td>
+
                 <td style='padding:0.5em; border:1px solid #D6DBDF;'>" . $item["comunicacion"] . "</td>
                 <td style='padding:0.5em; border:1px solid #D6DBDF;'>" . $item["docfamiliar"] . "</td>
                 <td style='padding:0.5em; border:1px solid #D6DBDF;'>" . $item["nombApFamiliar"] . "</td>
@@ -245,6 +253,9 @@ class ReportesControlador
                 <td style='padding:0.5em; border:1px solid #D6DBDF;'>" . $item["sexoFam"] . "</td>
                 <td style='padding:0.5em; border:1px solid #D6DBDF;'>" . $item["diagFam"] . "</td>
                 <td style='padding:0.5em; border:1px solid #D6DBDF;'>" . $item["actFam"] . "</td>
+                <td style='padding:0.5em; border:1px solid #D6DBDF;'>" . $item["actFam2"] . "</td>
+                <td style='padding:0.5em; border:1px solid #D6DBDF;'>" . $item["actFam3"] . "</td>
+
                 <td style='padding:0.5em; border:1px solid #D6DBDF;'>" . $item["profesional"] . "</td>
                 </tr>");
             }
@@ -284,7 +295,9 @@ class ReportesControlador
                     <td style='font-weight:bold; background-color:#ddd;'>EDAD</td>
                     <td style='font-weight:bold; background-color:#ddd;'>SEXO</td>	
 					<td style='font-weight:bold; background-color:#ddd;'>DIAG PAC</td>
-                    <td style='font-weight:bold; background-color:#ddd;'>ACT PAC</td> 
+					<td style='font-weight:bold; background-color:#ddd;'>DIAG PAC 2</td>
+					<td style='font-weight:bold; background-color:#ddd;'>DIAG PAC 3</td>
+					<td style='font-weight:bold; background-color:#ddd;'>DIAG PAC 4</td>
 					<td style='font-weight:bold; background-color:#ddd;'>COMUNICACION</td>
                     <td style='font-weight:bold; background-color:#ddd;'>DOC FAM</td>
 					<td style='font-weight:bold; background-color:#ddd;'>FAMILIAR</td>
@@ -292,8 +305,11 @@ class ReportesControlador
 					<td style='font-weight:bold; background-color:#ddd;'>EDAD</td>		
 					<td style='font-weight:bold; background-color:#ddd;'>SEXO</td>		
                     <td style='font-weight:bold; background-color:#ddd;'>DIAG FAM</td>
-                    <td style='font-weight:bold; background-color:#ddd;'>ACT FAM</td>	
-					<td style='font-weight:bold; background-color:#ddd;'>PROFESIONAL</td>	
+                    <td style='font-weight:bold; background-color:#ddd;'>DIAG FAM 2</td>
+                    <td style='font-weight:bold; background-color:#ddd;'>DIAG FAM 3</td>
+                    <td style='font-weight:bold; background-color:#ddd;'>DIAG FAM 4</td>
+
+                    <td style='font-weight:bold; background-color:#ddd;'>PROFESIONAL</td>	
                     </tr>");
             foreach ($visitasReport as $row => $item) {
                 echo utf8_decode("<tr>
@@ -308,6 +324,9 @@ class ReportesControlador
                 <td style='padding:0.5em; border:1px solid #D6DBDF;'>" . $item["sexoPac"] . "</td>
                 <td style='padding:0.5em; border:1px solid #D6DBDF;'>" . $item["diagPac"] . "</td>
                 <td style='padding:0.5em; border:1px solid #D6DBDF;'>" . $item["actPac"] . "</td>
+                <td style='padding:0.5em; border:1px solid #D6DBDF;'>" . $item["actPac2"] . "</td>
+                <td style='padding:0.5em; border:1px solid #D6DBDF;'>" . $item["actPac3"] . "</td>
+
                 <td style='padding:0.5em; border:1px solid #D6DBDF;'>" . $item["comunicacion"] . "</td>
                 <td style='padding:0.5em; border:1px solid #D6DBDF;'>" . $item["docfamiliar"] . "</td>
                 <td style='padding:0.5em; border:1px solid #D6DBDF;'>" . $item["nombApFamiliar"] . "</td>
@@ -316,6 +335,8 @@ class ReportesControlador
                 <td style='padding:0.5em; border:1px solid #D6DBDF;'>" . $item["sexoFam"] . "</td>
                 <td style='padding:0.5em; border:1px solid #D6DBDF;'>" . $item["diagFam"] . "</td>
                 <td style='padding:0.5em; border:1px solid #D6DBDF;'>" . $item["actFam"] . "</td>
+                <td style='padding:0.5em; border:1px solid #D6DBDF;'>" . $item["actFam2"] . "</td>
+                <td style='padding:0.5em; border:1px solid #D6DBDF;'>" . $item["actFam3"] . "</td>
                 <td style='padding:0.5em; border:1px solid #D6DBDF;'>" . $item["profesional"] . "</td>
                 </tr>");
             }
